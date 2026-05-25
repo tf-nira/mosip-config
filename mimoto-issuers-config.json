@@ -138,11 +138,20 @@
       "protocol": "OpenId4VCI",
       "client_id": "${mimoto.oidc.mosipid.partner.clientid}",
       "client_alias": "mpartner-default-mimoto-mosipid-oidc",
+      "scopes_supported": [
+                "openg2p_beneficiary_1_vc_ldp"
       "wellknown_endpoint": "https://${mosip.injicertify.mosipid.host}/v1/certify/issuance/.well-known/openid-credential-issuer",
       "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
       "authorization_audience": "https://${mosipid.identity.esignet.host}/v1/esignet/oauth/v2/token",
       "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/Mosip",
       "proxy_token_endpoint": "https://${mosipid.identity.esignet.host}/v1/esignet/oauth/v2/token",
+      "authorization_endpoint": "https://${mosip.esignet.host}/authorize", 
+      "credential_endpoint": "https://explore.openg2p.org/api/v1/vci/credential",
+      "credential_type": [
+                "VerifiableCredential",
+                "OpenG2PBeneficiaryVerifiableCredential"
+            ],
+      "credential_audience": "https://explore.openg2p.org",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     },
@@ -165,11 +174,20 @@
       "protocol": "OpenId4VCI",
       "client_id": "${mimoto.oidc.insurance.partner.clientid}",
       "client_alias": "mpartner-default-mimoto-insurance-oidc",
+      "scopes_supported": [
+                "openg2p_beneficiary_1_vc_ldp"
       "wellknown_endpoint": "https://${mosip.injicertify.insurance.host}/v1/certify/issuance/.well-known/openid-credential-issuer",
       "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
       "authorization_audience": "https://${sunbirdrc.insurance.esignet.host}/v1/esignet/oauth/v2/token",
       "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/StayProtected",
       "proxy_token_endpoint": "https://${sunbirdrc.insurance.esignet.host}/v1/esignet/oauth/v2/token",
+      "authorization_endpoint": "https://${mosip.esignet.host}/authorize", 
+      "credential_endpoint": "https://explore.openg2p.org/api/v1/vci/credential",
+      "credential_type": [
+                "VerifiableCredential",
+                "OpenG2PBeneficiaryVerifiableCredential"
+            ],
+      "credential_audience": "https://explore.openg2p.org",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     },
@@ -192,11 +210,20 @@
       "protocol": "OpenId4VCI",
       "client_id": "${mimoto.oidc.mock.partner.clientid}",
       "client_alias": "mpartner-default-mimoto-mock-oidc",
+      "scopes_supported": [
+                "openg2p_beneficiary_1_vc_ldp"
       "wellknown_endpoint": "https://${mosip.injicertify.mock.host}/v1/certify/issuance/.well-known/openid-credential-issuer",
       "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
       "authorization_audience": "https://${mock.identity.esignet.host}/v1/esignet/oauth/v2/token",
       "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/Mock",
       "proxy_token_endpoint": "https://${mock.identity.esignet.host}/v1/esignet/oauth/v2/token",
+      "authorization_endpoint": "https://${mosip.esignet.host}/authorize", 
+      "credential_endpoint": "https://explore.openg2p.org/api/v1/vci/credential",
+      "credential_type": [
+                "VerifiableCredential",
+                "OpenG2PBeneficiaryVerifiableCredential"
+            ],
+      "credential_audience": "https://explore.openg2p.org",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     },
@@ -229,11 +256,20 @@
       "protocol": "OpenId4VCI",
       "client_id": "${mimoto.oidc.mdl.partner.clientid}",
       "client_alias": "mpartner-default-mimoto-mdl-released-oidc",
+      "scopes_supported": [
+                "openg2p_beneficiary_1_vc_ldp"
       "wellknown_endpoint": "https://${mosip.injicertify.mdl.host}/v1/certify/issuance/.well-known/openid-credential-issuer",
       "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
       "authorization_audience": "https://${mock.identity.esignet.host}/v1/esignet/oauth/v2/token",
       "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/MockMdl",
       "proxy_token_endpoint": "https://${mock.identity.esignet.host}/v1/esignet/oauth/v2/token",
+      "authorization_endpoint": "https://${mosip.esignet.host}/authorize", 
+      "credential_endpoint": "https://explore.openg2p.org/api/v1/vci/credential",
+      "credential_type": [
+                "VerifiableCredential",
+                "OpenG2PBeneficiaryVerifiableCredential"
+            ],
+      "credential_audience": "https://explore.openg2p.org",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     },
@@ -256,11 +292,20 @@
       "protocol": "OpenId4VCI",
       "client_id": "${mimoto.oidc.land.partner.clientid}",
       "client_alias": "mpartner-default-mimoto-land-released-oidc",
+      "scopes_supported": [
+                "openg2p_beneficiary_1_vc_ldp"
       "wellknown_endpoint": "https://${mosip.injicertify.landregistry.host}/v1/certify/issuance/.well-known/openid-credential-issuer",
       "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
       "authorization_audience": "https://${mock.identity.esignet.host}/v1/esignet/oauth/v2/token",
       "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/Land",
       "proxy_token_endpoint": "https://${mock.identity.esignet.host}/v1/esignet/oauth/v2/token",
+      "authorization_endpoint": "https://${mosip.esignet.host}/authorize", 
+      "credential_endpoint": "https://explore.openg2p.org/api/v1/vci/credential",
+      "credential_type": [
+                "VerifiableCredential",
+                "OpenG2PBeneficiaryVerifiableCredential"
+            ],
+      "credential_audience": "https://explore.openg2p.org",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     }

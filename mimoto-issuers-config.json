@@ -136,8 +136,8 @@
         }
       ],
       "protocol": "OpenId4VCI",
-      "client_id": "${mimoto.oidc.mosipid.partner.clientid}",
-      "client_alias": "mpartner-default-mimoto-mosipid-oidc",
+      "client_id": "${mimoto.oidc.partner.clientid}",
+      "client_alias": "mpartner-default-mimotooidc",
       "scopes_supported": [
                 "openg2p_beneficiary_1_vc_ldp"
          ],

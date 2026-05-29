@@ -72,7 +72,7 @@
     {
       "issuer_id": "Mosip",
       "credential_issuer": "Mosip",
-      "credential_issuer_host": "https://${mosip.injicertify.mosipid.host}/v1/certify/issuance",
+      "credential_issuer_host": "https://${mosip.injicertify.host}/v1/certify/issuance",
       "display": [
         {
           "name": "National Identity Department",

@@ -139,7 +139,7 @@
       "client_id": "${mimoto.oidc.partner.clientid}",
       "client_alias": "mpartner-default-mimotooidc",
       "scopes_supported": [
-                ""mosip_identity_vc_ldp"
+                "mosip_identity_vc_ldp"
          ],
       "wellknown_endpoint": "https://${mosip.injicertify.host}/v1/certify/issuance/.well-known/openid-credential-issuer",
       "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",

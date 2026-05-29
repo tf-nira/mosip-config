@@ -72,7 +72,7 @@
     {
       "issuer_id": "Mosip",
       "credential_issuer": "Mosip",
-      "credential_issuer_host": "https://${mosip.injicertify.mosipid.host}",
+      "credential_issuer_host": "https://${mosip.injicertify.mosipid.host}/v1/certify/issuance",
       "display": [
         {
           "name": "National Identity Department",
@@ -139,7 +139,7 @@
       "client_id": "${mimoto.oidc.partner.clientid}",
       "client_alias": "mpartner-default-mimotooidc",
       "scopes_supported": [
-                "openg2p_beneficiary_1_vc_ldp"
+                ""mosip_identity_vc_ldp"
          ],
       "wellknown_endpoint": "https://${mosip.injicertify.host}/v1/certify/issuance/.well-known/openid-credential-issuer",
       "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
@@ -147,13 +147,12 @@
       "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/Mosip",
       "proxy_token_endpoint": "https://${mosipid.identity.esignet.host}/v1/esignet/oauth/v2/token",
       "authorization_endpoint": "https://${mosip.esignet.host}/authorize", 
-      "credential_endpoint": "https://explore.openg2p.org/api/v1/vci/credential",
+      "credential_endpoint": "https://${mosip.esignet.host}/v1/esignet/vci/credential",
       "credential_type": [
                 "VerifiableCredential",
-                "OpenG2PBeneficiaryVerifiableCredential"
+                "MOSIPVerifiableCredential"
             ],
-      "credential_audience": "https://explore.openg2p.org",
-      "qr_code_type": "OnlineSharing",
+      "credential_audience": "https://${mosip.esignet.host}",
       "enabled": "true"
     },
     {

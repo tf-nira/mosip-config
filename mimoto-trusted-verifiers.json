@@ -1,0 +1,13 @@
+{
+  "verifiers": [
+    {
+      "client_id": "https://${mosip.injiverify.host}",
+      "redirect_uris": [
+        "https://${mosip.injiverify.host}/redirect"
+      ],
+      "response_uris": [
+        "https://${mosip.injiverify.host}/v1/verify/vp-submission/direct-post"
+      ]
+    }
+  ]
+}

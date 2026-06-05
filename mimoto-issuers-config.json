@@ -1,9 +1,7 @@
 {
   "issuers": [
     {
-      "issuer_id": "MosipOtp",
       "credential_issuer": "MosipOtp",
-      "credential_issuer_host": "https://${mosip.injicertify.mosipid.host}",
       "display": [
         {
           "name": "MOSIP National ID",

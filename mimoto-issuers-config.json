@@ -154,6 +154,7 @@
                 "MOSIPVerifiableCredential"
             ],
       "credential_audience": "https://${mosip.esignet.host}",
+      "qr_code_type": "OnlineSharing",
       "enabled": "true"
     },
     {

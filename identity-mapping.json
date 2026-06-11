@@ -106,11 +106,8 @@
 			"value": "dateOfBirth"
 		},
 		 "picture": {
-	      "value": "faceRawImage"
+	      "value": "face"
 	    }, 
-		"faceRawImage": {
-	      "value": "faceRawImage"
-	    },
 		"phone_number": {
 			"value": "phone"
 		},

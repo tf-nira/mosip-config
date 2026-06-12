@@ -141,8 +141,8 @@
       "wellknown_endpoint": "https://${mosip.injicertify.host}/v1/certify/issuance/.well-known/openid-credential-issuer",
       "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
       "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/Mosip",
-      "authorization_audience": "https://${mosipid.esignet.host}/v1/esignet/oauth/v2/token",
-      "proxy_token_endpoint": "https://${mosipid.esignet.host}/v1/esignet/oauth/v2/token",
+      "authorization_audience": "https://${mosip.esignet.host}/v1/esignet/oauth/v2/token",
+      "proxy_token_endpoint": "https://${mosip.esignet.host}/v1/esignet/oauth/v2/token",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     }

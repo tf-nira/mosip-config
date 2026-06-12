@@ -1,0 +1,150 @@
+{
+  "issuers": [
+    {
+      "issuer_id": "MosipOtp",
+      "credential_issuer": "MosipOtp",
+      "credential_issuer_host": "MosipOtp",
+      "display": [
+        {
+          "name": "MOSIP National ID",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/mosipid-logo.png",
+            "alt_text": "a square logo of MOSIP"
+          },
+          "title": "Download MOSIP Credentials via OTP",
+          "description":"Download credentials by providing UIN, VID or AID",
+          "language": "en"
+        },
+        {
+          "name": "الهوية الوطنية MOSIP",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/mosipid-logo.png",
+            "alt_text": "شعار مربع لـ MOSIP"
+          },
+          "title": "قم بتنزيل بيانات اعتماد MOSIP عبر OTP",
+          "description": "قم بتنزيل بيانات الاعتماد من خلال توفير UIN أو VID أو AID",
+          "language": "ar"
+        },
+        {
+          "name": "एमओसिप राष्ट्रीय आईडी",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/mosipid-logo.png",
+            "alt_text": "MOSIP का एक वर्गाकार लोगो"
+          },
+          "title": "OTP के माध्यम से MOSIP क्रेडेंशियल डाउनलोड करें",
+          "description":"यूआईएन, वीआईडी या एआईडी प्रदान करके क्रेडेंशियल डाउनलोड करें",
+          "language": "hi"
+        },
+        {
+          "name": "MOSIP ರಾಷ್ಟ್ರೀಯ ID",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/mosipid-logo.png",
+            "alt_text": "MOSIP ನ ಚದರ ಲೋಗೋ"
+          },
+          "title": "OTP ಮೂಲಕ MOSIP ರುಜುವಾತುಗಳನ್ನು ಡೌನ್ಲೋಡ್ ಮಾಡಿ",
+          "description": "UIN, VID ಅಥವಾ AID ಒದಗಿಸುವ ಮೂಲಕ ರುಜುವಾತುಗಳನ್ನು ಡೌನ್\u200Cಲೋಡ್ ಮಾಡಿ",
+          "language": "kn"
+        },
+        {
+          "name": "MOSIP தேசிய ஐடி",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/mosipid-logo.png",
+            "alt_text": "MOSIP இன் சதுர லோகோ"
+          },
+          "title": "OTP வழியாக MOSIP சான்றுகளைப் பதிவிறக்கவும்",
+          "description":"UIN, VID அல்லது AID ஐ வழங்குவதன் மூலம் நற்சான்றிதழ்களைப் பதிவிறக்கவும்",
+          "language": "ta"
+        },
+        {
+          "name": "MOSIP National ID",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/mosipid-logo.png",
+            "alt_text": "isang parisukat na logo ng MOSIP"
+          },
+          "title": "I-download ang Mga Kredensyal ng MOSIP sa pamamagitan ng OTP",
+          "description":"Mag-download ng mga kredensyal sa pamamagitan ng pagbibigay ng UIN, VID o AID",
+          "language": "fil"
+        }
+      ],
+      "protocol": "OTP",
+      "enabled": "${mosip.otp.download.enable}"
+    },
+    {
+      "issuer_id": "Mosip",
+      "credential_issuer": "Mosip",
+      "credential_issuer_host": "https://${mosip.injicertify.host}",
+      "display": [
+        {
+          "name": "National Identity Department",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/mosipid-logo.png",
+            "alt_text": "mosip-logo"
+          },
+          "title": "National Identity Department",
+          "description": "Download MOSIP National / Foundational Identity Credential",
+          "language": "en"
+        },
+        {
+          "name": "دائرة الهوية الوطنية",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/mosipid-logo.png",
+            "alt_text": "شعار موسيب"
+          },
+          "title": "دائرة الهوية الوطنية",
+          "description": "قم بتنزيل بيانات اعتماد الهوية الوطنية / التأسيسية MOSIP",
+          "language": "ar"
+        },
+        {
+          "name": "राष्ट्रीय पहचान विभाग",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/mosipid-logo.png",
+            "alt_text": "मोसिप लोगो"
+          },
+          "title": "राष्ट्रीय पहचान विभाग",
+          "description": "MOSIP नेशनल/फाउंडेशनल आइडेंटिटी क्रेडेंशियल डाउनलोड करेंं",
+          "language": "hi"
+        },
+        {
+          "name": "ರಾಷ್ಟ್ರೀಯ ಗುರುತಿನ ಇಲಾಖೆ",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/mosipid-logo.png",
+            "alt_text": "mosip ಲೋಗೋ"
+          },
+          "title": "ರಾಷ್ಟ್ರೀಯ ಗುರುತಿನ ಇಲಾಖೆ",
+          "description": "MOSIP ರಾಷ್ಟ್ರೀಯ / ಫೌಂಡೇಶನಲ್ ಐಡೆಂಟಿಟಿ ರುಜುವಾತು ಡೌನ್\u200Cಲೋಡ್ ಮಾಡಿ",
+          "language": "kn"
+        },
+        {
+          "name": "தேசிய அடையாளத் துறை",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/mosipid-logo.png",
+            "alt_text": "mosip லோகோ"
+          },
+          "title": "தேசிய அடையாளத் துறை",
+          "description": "MOSIP தேசிய / அடிப்படை அடையாளச் சான்றிதழைப் பதிவிறக்கவும்",
+          "language": "ta"
+        },
+        {
+          "name": "National Identity Department",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/mosipid-logo.png",
+            "alt_text": "logo ng mosip"
+          },
+          "title": "National Identity Department",
+          "description": "I-download ang MOSIP National / Foundational Identity Credential",
+          "language": "fil"
+        }
+      ],
+      "protocol": "OpenId4VCI",
+      "client_id": "${mimoto.oidc.partner.clientid}",
+      "client_alias": "mpartner-default-mimoto-oidc",
+      "wellknown_endpoint": "https://${mosip.injicertify.host}/v1/certify/issuance/.well-known/openid-credential-issuer",
+      "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
+      "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/Mosip",
+      "authorization_audience": "https://${mosipid.esignet.host}/v1/esignet/oauth/v2/token",
+      "proxy_token_endpoint": "https://${mosipid.esignet.host}/v1/esignet/oauth/v2/token",
+      "qr_code_type": "OnlineSharing",
+      "enabled": "true"
+    }
+  ]
+}

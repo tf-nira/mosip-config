@@ -149,7 +149,7 @@
     {
     "issuer_id": "CREDEBL_TestOrg",
     "credential_issuer": "CREDEBL_TestOrg",
-    "credential_issuer_host": "http://10.3.1.200:8001/",
+    "credential_issuer_host": "http://10.3.1.200:8001/oid4vci/testorg",
     "display": [
       {
         "name": "Credebl University",

@@ -145,29 +145,6 @@
       "proxy_token_endpoint": "https://${mosipid.identity.esignet.host}/v1/esignet/oauth/v2/token",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
-    },
-    {
-  "issuer_id": "CREDEBL_Issuer",
-  "display": [
-    {
-      "name": "CREDEBL National ID",
-      "logo": {
-        "url": "https://raw.githubusercontent.com/credebl/credebl-studio/main/public/logo.png",
-        "alt_text": "credebl-logo"
-      },
-      "title": "CREDEBL Trusted Identity",
-      "description": "Download your secure Verifiable Credentials powered by CREDEBL Architecture.",
-      "language": "en"
     }
-  ],
-  "protocol": "OpenId4VCI",
-  "client_id": "inji-wallet-client",
-  "client_alias": "credebl-mimoto-client-alias",
-  "credential_issuer_host": "http://10.3.1.200:5000/api",
-  "token_endpoint": "https://10.3.1.200:5000/api/v1/auth/token",
-  "proxy_token_endpoint": "https://10.3.1.200:5000/api/v1/mimoto/get-token/CREDEBL_Issuer",
-  "wellknown_endpoint": "https://10.3.1.200:5000/api/v1/issuance/.well-known/openid-credential-issuer",
-  "qr_code_type": "OnlineSharing"
-}
   ]
 }

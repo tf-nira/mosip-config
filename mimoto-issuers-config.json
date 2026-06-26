@@ -145,31 +145,6 @@
       "proxy_token_endpoint": "https://${mosipid.identity.esignet.host}/v1/esignet/oauth/v2/token",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
-    },
-    {
-    "issuer_id": "CREDEBL_TestOrg",
-    "credential_issuer": "CREDEBL_TestOrg",
-    "credential_issuer_host": "http://10.3.1.200:8001",
-    "display": [
-      {
-        "name": "Credebl University",
-        "logo": {
-          "url": "https://university.example.io/assets/logo-en.svg",
-          "alt_text": "Credebl University logo"
-        },
-        "title": "Credebl University",
-        "description": "Download your Master's in Science credential",
-        "language": "en"
-      }
-    ],
-    "protocol": "OpenId4VCI",
-    "client_id": "credebl-testorg",
-    "wellknown_endpoint": "http://10.3.1.200:8001/oid4vci/testorg/.well-known/openid-credential-issuer",
-    "token_endpoint": "http://10.3.1.200:8001/oid4vci/testorg/token",
-    "credential_endpoint": "http://10.3.1.200:8001/oid4vci/testorg/credential",
-    "qr_code_type": "OnlineSharing",
-    "enabled": "true"
-  }
- 
+    }
   ]
 }

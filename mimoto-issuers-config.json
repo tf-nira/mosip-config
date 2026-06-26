@@ -146,29 +146,34 @@
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     },
-    {
-    "issuer_id": "CREDEBL_TestOrg",
-    "credential_issuer": "CREDEBL_TestOrg",
-    "credential_issuer_host": "http://10.3.1.200:8001/oid4vci/testorg",
+   {
+    "issuer_id": "testorg",
+    "credential_issuer": "testorg",
+    "credential_issuer_host": "http://10.3.1.200:8001",
     "display": [
-      {
-        "name": "Credebl University",
-        "logo": {
-          "url": "https://university.example.io/assets/logo-en.svg",
-          "alt_text": "Credebl University logo"
-        },
-        "title": "Credebl University",
-        "description": "Download your Master's in Science credential",
-        "language": "en"
-      }
+        {
+            "name": "Credebl University",
+            "logo": {
+                "url": "https://university.example.io/assets/logo-en.svg",
+                "alt_text": "Credebl University logo"
+            },
+            "title": "Credebl University",
+            "description": "Download your Master's in Science credential",
+            "language": "en"
+        }
     ],
     "protocol": "OpenId4VCI",
     "client_id": "credebl-testorg",
+    "client_alias": "credebl-testorg",
     "wellknown_endpoint": "http://10.3.1.200:8001/oid4vci/testorg/.well-known/openid-credential-issuer",
+    "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
     "token_endpoint": "http://10.3.1.200:8001/oid4vci/testorg/token",
+    "authorization_audience": "http://10.3.1.200:8001/oid4vci/testorg/token",
+    "proxy_token_endpoint": "http://10.3.1.200:8001/oid4vci/testorg/token",
     "credential_endpoint": "http://10.3.1.200:8001/oid4vci/testorg/credential",
     "qr_code_type": "OnlineSharing",
     "enabled": "true"
   }
+ 
   ]
 }

@@ -147,8 +147,8 @@
       "enabled": "true"
     },
     {
-      "issuer_id": "testorg",
-      "credential_issuer": "testorg",
+      "issuer_id": "Sunbird",
+      "credential_issuer": "Sunbird",
       "credential_issuer_host": "http://10.3.1.200:8001",
       "display": [
         {
@@ -167,12 +167,13 @@
       "client_alias": "credebl-testorg",
       "wellknown_endpoint": "http://10.3.1.200:8001/oid4vci/testorg/.well-known/openid-credential-issuer",
       "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
-      "token_endpoint": "http://10.3.1.200:8001/oid4vci/testorg/token",
+      "token_endpoint": "https://api.demo.idencode.link/v1/mimoto/get-token/Sunbird",
       "authorization_audience": "http://10.3.1.200:8001/oid4vci/testorg/token",
       "proxy_token_endpoint": "http://10.3.1.200:8001/oid4vci/testorg/token",
       "credential_endpoint": "http://10.3.1.200:8001/oid4vci/testorg/credential",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     }
+ 
   ]
 }

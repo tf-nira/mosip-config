@@ -48,6 +48,12 @@
 		"vid": {
 			"value": "VID"
 		},
+		"subjectType": {
+			"value": "subjectType"
+		},
+		"grade": {
+			"value": "grade"
+		},
 		"individualBiometrics": {
 			"value": "individualBiometrics"
 		},

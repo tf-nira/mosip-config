@@ -149,7 +149,7 @@
     {
       "issuer_id": "StayProtected",
       "credential_issuer": "StayProtected",
-      "credential_issuer_host": "https://${mosip.injicertify.host}",
+      "credential_issuer_host": "https://${mosip.injicertify.insurance.host}",
       "display": [
         {
           "name": "StayProtected Insurance",

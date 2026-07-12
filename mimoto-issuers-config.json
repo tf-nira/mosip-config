@@ -170,6 +170,7 @@
       "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/StayProtected",
       "authorization_audience": "https://${mosipid.esignet.insurance.host}/v1/esignet/oauth/v2/token",
       "proxy_token_endpoint": "https://${mosipid.esignet.insurance.host}/v1/esignet/oauth/v2/token",
+      "authorization_endpoint": "https://esignet-insurance.demo.idencode.link/authorize",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     },

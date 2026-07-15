@@ -145,6 +145,34 @@
       "proxy_token_endpoint": "https://${mosipid.identity.esignet.host}/v1/esignet/oauth/v2/token",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
+    },
+      {
+      "issuer_id": "StayProtected",
+      "credential_issuer": "StayProtected",
+      "credential_issuer_host": "https://${mosip.injicertify.insurance.host}",
+      "display": [
+        {
+          "name": "StayProtected Insurance",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/StayProtectedInsurance.png",
+            "alt_text": "a square logo of a Sunbird"
+          },
+          "language": "en",
+          "title": "Download StayProtected Insurance Credentials",
+          "description": "Download insurance credential"
+        }
+      ],
+      "protocol": "OpenId4VCI",
+      "client_id": "${mimoto.oidc.partner.clientid}",
+      "client_alias": "mpartner-default-mimotooidc",
+      "wellknown_endpoint": "https://${mosip.injicertify.insurance.host}/v1/certify/issuance/.well-known/openid-credential-issuer",
+      "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
+      "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/StayProtected",
+      "authorization_audience": "https://${mosipid.esignet.insurance.host}/v1/esignet/oauth/v2/token",
+      "proxy_token_endpoint": "https://${mosipid.esignet.insurance.host}/v1/esignet/oauth/v2/token",
+      "authorization_endpoint": "https://esignet-insurance.demo.idencode.link/authorize",
+      "qr_code_type": "OnlineSharing",
+      "enabled": "true"
     }
   ]
 }

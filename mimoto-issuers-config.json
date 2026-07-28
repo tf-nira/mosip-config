@@ -175,6 +175,33 @@
       "enabled": "true"
     },
     {
+      "issuer_id":"Land",
+      "credential_issuer": "Land",
+      "credential_issuer_host":"https://${mosip.injicertify.landregistry.host}",
+      "display": [
+        {
+          "name": "Land Registry",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/agro-vertias-logo.png",
+            "alt_text": "land-logo"
+          },
+          "title": "Land Registry",
+          "description": "Download Land Registry Credential",
+          "language": "en"
+        }
+      ],
+      "protocol": "OpenId4VCI",
+      "client_id": "${mimoto.oidc.land.partner.clientid}",
+      "client_alias": "mpartner-default-mimoto-land-released-oidc",
+      "wellknown_endpoint": "https://${mosip.injicertify.landregistry.host}/v1/certify/issuance/.well-known/openid-credential-issuer",
+      "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
+      "authorization_audience": "https://${mock.identity.esignet.host}/v1/esignet/oauth/v2/token",
+      "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/Land",
+      "proxy_token_endpoint": "https://${mock.identity.esignet.host}/v1/esignet/oauth/v2/token",
+      "qr_code_type": "OnlineSharing",
+      "enabled": "true"
+    },
+    {
       "issuer_id": "Sunbird",
       "credential_issuer": "Sunbird",
       "credential_issuer_host": "http://10.3.1.200:8001/oid4vci/testorg",

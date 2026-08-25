@@ -146,7 +146,7 @@
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     },
-      {
+    {
       "issuer_id": "StayProtected",
       "credential_issuer": "StayProtected",
       "credential_issuer_host": "https://${mosip.injicertify.insurance.host}",
@@ -173,6 +173,35 @@
       "authorization_endpoint": "https://esignet-insurance.demo.idencode.link/authorize",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
+    },
+    {
+      "issuer_id": "Institution",
+      "credential_issuer": "Institution",
+      "credential_issuer_host": "https://${mosip.injicertify.student.host}",
+      "display": [
+        {
+          "name": "Institution",
+          "logo": {
+            "url": "https://mosip.github.io/inji-config/logos/InstitutionCertificate.png",
+            "alt_text": "a square logo representing an educational institution"
+          },
+          "language": "en",
+          "title": "Download Student Certificate",
+          "description": "Download your certificate issued by your institution"
+        }
+      ],
+      "protocol": "OpenId4VCI",
+      "client_id": "${mimoto.oidc.partner.clientid}",
+      "client_alias": "mpartner-default-mimotooidc",
+      "wellknown_endpoint": "https://${mosip.injicertify.student.host}/v1/certify/issuance/.well-known/openid-credential-issuer",
+      "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
+      "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/Institution",
+      "authorization_audience": "https://${mosipid.esignet.student.host}/v1/esignet/oauth/v2/token",
+      "proxy_token_endpoint": "https://${mosipid.esignet.student.host}/v1/esignet/oauth/v2/token",
+      "authorization_endpoint": "https://esignet-student.demo.idencode.link/authorize",
+      "qr_code_type": "OnlineSharing",
+      "enabled": "true"
     }
+
   ]
 }

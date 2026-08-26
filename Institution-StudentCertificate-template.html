@@ -46,11 +46,11 @@
       This is to certify that
       <span class="student-name">{{studentName}}</span>
       <div class="certificate-type-line">
-        {{#if (eq certificateType "CourseCompletionCertificate")}}
+        #if ($certificateType == "CourseCompletionCertificate")
           has successfully completed the program
-        {{else}}
-          {{certificateType}}
-        {{/if}}
+        #else
+            $certificateType
+        #end
       </div>
       <div class="program-line"><strong>{{program}}</strong></div>
     </div>

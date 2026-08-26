@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
 
+    <title>Certificate of Achievement</title>
+
     <style>
 
         @page {
@@ -19,32 +21,27 @@
 
         body {
             font-family: Georgia, "Times New Roman", serif;
-            background: #ffffff;
+            background: #f4f1ea;
+            width: 100%;
+            margin: 0;
+            padding: 30px;
         }
 
-
         /* =====================================================
-           PAGE 1 - CERTIFICATE
+           FIRST PAGE - CERTIFICATE
            ===================================================== */
 
         .certificate-page {
             width: 100%;
-            height: 100vh;
-            padding: 30px;
-            page-break-after: always;
-            position: relative;
-        }
-
-        .certificate {
-            width: 100%;
-            height: 100%;
+            min-height: 700px;
             background: #ffffff;
             border: 10px solid #7C4616;
             padding: 55px 65px;
             position: relative;
+            page-break-after: always;
         }
 
-        .certificate:before {
+        .certificate-page:before {
             content: "";
             position: absolute;
             top: 14px;
@@ -58,6 +55,10 @@
             position: relative;
             z-index: 1;
         }
+
+        /* =====================================================
+           HEADER
+           ===================================================== */
 
         .header {
             text-align: center;
@@ -85,6 +86,10 @@
             text-transform: uppercase;
             letter-spacing: 3px;
         }
+
+        /* =====================================================
+           MAIN CONTENT
+           ===================================================== */
 
         .main {
             text-align: center;
@@ -119,10 +124,15 @@
             color: #7C4616;
         }
 
+        /* =====================================================
+           DETAILS
+           ===================================================== */
+
         .details {
+            width: 100%;
+            margin-top: 50px;
             display: flex;
             justify-content: space-between;
-            margin-top: 50px;
         }
 
         .detail {
@@ -142,11 +152,28 @@
             font-size: 16px;
             font-weight: bold;
             color: #292929;
+            word-wrap: break-word;
         }
 
+        /* =====================================================
+           CERTIFICATE ID
+           ===================================================== */
+
+        .certificate-id {
+            text-align: center;
+            margin-top: 35px;
+            font-size: 10px;
+            color: #aaaaaa;
+            letter-spacing: 1px;
+        }
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
         .footer {
-            margin-top: 55px;
-            padding-top: 25px;
+            margin-top: 45px;
+            padding-top: 20px;
             border-top: 1px solid #eeeeee;
             text-align: center;
         }
@@ -156,107 +183,216 @@
             color: #999999;
         }
 
-
         /* =====================================================
-           PAGE 2 - QR CODE ONLY
+           SECOND PAGE - QR CODE
            ===================================================== */
 
         .qr-page {
             width: 100%;
-            height: 100vh;
-            page-break-before: always;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            min-height: 700px;
+            background: #ffffff;
+            border: 10px solid #7C4616;
+            position: relative;
             text-align: center;
+            page-break-before: always;
+            page-break-after: auto;
+            padding: 70px;
         }
 
-        .qr-container {
-            text-align: center;
+        .qr-page-inner {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            min-height: 540px;
+            border: 2px solid #d9c7a3;
+            padding-top: 60px;
         }
 
         .qr-title {
-            font-size: 28px;
+            font-size: 32px;
             font-weight: bold;
             color: #7C4616;
-            margin-bottom: 25px;
+            margin-bottom: 15px;
         }
 
-        .qr-image {
-            width: 350px;
-            height: 350px;
-            display: block;
+        .qr-description {
+            font-size: 16px;
+            color: #555555;
+            margin-bottom: 35px;
+        }
+
+        .qr-code-container {
+            width: 330px;
+            height: 330px;
             margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-code {
+            width: 300px;
+            height: 300px;
+            object-fit: contain;
         }
 
         .qr-label {
             margin-top: 20px;
-            font-size: 14px;
-            color: #777777;
+            font-size: 16px;
+            font-weight: bold;
+            color: #7C4616;
             text-transform: uppercase;
             letter-spacing: 2px;
+        }
+
+        .qr-help {
+            margin-top: 12px;
+            font-size: 12px;
+            color: #888888;
         }
 
     </style>
 
 </head>
 
-
 <body>
 
 
 <!-- =========================================================
-     PAGE 1 - CERTIFICATE
+     PAGE 1
+     CERTIFICATE
      ========================================================= -->
 
 <div class="certificate-page">
 
-    <div class="certificate">
+    <div class="content">
 
-        <div class="content">
+        <!-- =================================================
+             INSTITUTION NAME
+             ================================================= -->
 
+        <div class="header">
 
-            <!-- =================================================
-                 INSTITUTION NAME
-                 ================================================= -->
+            #set($data = $rowProperties.get("institutionName"))
 
-            <div class="header">
+            #if($data && $data.size() > 0)
 
-                #set($data = "")
-                #set($data = $rowProperties.get("institutionName"))
+                #foreach($entry in $data.entrySet())
 
-                #if($data && $data.size() > 0)
-
-                    #foreach($entry in $data.entrySet())
-
-                        <div class="institution">
-                            $entry.value
-                        </div>
-
-                    #end
+                    <div class="institution">
+                        $entry.value
+                    </div>
 
                 #end
 
+            #end
 
-                <!-- CERTIFICATE TITLE -->
 
-                <div class="title">
-                    Certificate of Achievement
+            <!-- =================================================
+                 TITLE
+                 ================================================= -->
+
+            <div class="title">
+                Certificate of Achievement
+            </div>
+
+
+            <!-- =================================================
+                 CERTIFICATE TYPE
+                 ================================================= -->
+
+            #set($data = $rowProperties.get("certificateType"))
+
+            #if($data && $data.size() > 0)
+
+                #foreach($entry in $data.entrySet())
+
+                    <div class="certificate-type">
+                        $entry.value
+                    </div>
+
+                #end
+
+            #end
+
+        </div>
+
+
+        <!-- =================================================
+             STUDENT SECTION
+             ================================================= -->
+
+        <div class="main">
+
+            <div class="intro">
+                This is to certify that
+            </div>
+
+
+            <!-- STUDENT NAME -->
+
+            #set($data = $rowProperties.get("studentName"))
+
+            #if($data && $data.size() > 0)
+
+                #foreach($entry in $data.entrySet())
+
+                    <div class="student-name">
+                        $entry.value
+                    </div>
+
+                #end
+
+            #end
+
+
+            <div class="completion">
+                has successfully completed the program
+            </div>
+
+
+            <!-- PROGRAM -->
+
+            #set($data = $rowProperties.get("program"))
+
+            #if($data && $data.size() > 0)
+
+                #foreach($entry in $data.entrySet())
+
+                    <div class="program">
+                        $entry.value
+                    </div>
+
+                #end
+
+            #end
+
+        </div>
+
+
+        <!-- =================================================
+             DETAILS SECTION
+             ================================================= -->
+
+        <div class="details">
+
+
+            <!-- STUDENT ID -->
+
+            <div class="detail">
+
+                <div class="label">
+                    Student ID
                 </div>
 
-
-                <!-- =================================================
-                     CERTIFICATE TYPE
-                     ================================================= -->
-
-                #set($data = "")
-                #set($data = $rowProperties.get("certificateType"))
+                #set($data = $rowProperties.get("studentId"))
 
                 #if($data && $data.size() > 0)
 
                     #foreach($entry in $data.entrySet())
 
-                        <div class="certificate-type">
+                        <div class="value">
                             $entry.value
                         </div>
 
@@ -267,51 +403,21 @@
             </div>
 
 
+            <!-- BATCH -->
 
-            <!-- =================================================
-                 STUDENT
-                 ================================================= -->
+            <div class="detail">
 
-            <div class="main">
-
-                <div class="intro">
-                    This is to certify that
+                <div class="label">
+                    Batch
                 </div>
 
-
-                #set($data = "")
-                #set($data = $rowProperties.get("studentName"))
+                #set($data = $rowProperties.get("batchYear"))
 
                 #if($data && $data.size() > 0)
 
                     #foreach($entry in $data.entrySet())
 
-                        <div class="student-name">
-                            $entry.value
-                        </div>
-
-                    #end
-
-                #end
-
-
-                <div class="completion">
-                    has successfully completed the program
-                </div>
-
-
-                <!-- =================================================
-                     PROGRAM
-                     ================================================= -->
-
-                #set($data = "")
-                #set($data = $rowProperties.get("program"))
-
-                #if($data && $data.size() > 0)
-
-                    #foreach($entry in $data.entrySet())
-
-                        <div class="program">
+                        <div class="value">
                             $entry.value
                         </div>
 
@@ -322,136 +428,86 @@
             </div>
 
 
+            <!-- GRADE -->
 
-            <!-- =================================================
-                 DETAILS
-                 ================================================= -->
+            <div class="detail">
 
-            <div class="details">
+                <div class="label">
+                    Grade
+                </div>
 
+                #set($data = $rowProperties.get("grade"))
 
-                <!-- STUDENT ID -->
+                #if($data && $data.size() > 0)
 
-                <div class="detail">
+                    #foreach($entry in $data.entrySet())
 
-                    <div class="label">
-                        Student ID
-                    </div>
-
-                    #set($data = "")
-                    #set($data = $rowProperties.get("studentId"))
-
-                    #if($data && $data.size() > 0)
-
-                        #foreach($entry in $data.entrySet())
-
-                            <div class="value">
-                                $entry.value
-                            </div>
-
-                        #end
+                        <div class="value">
+                            $entry.value
+                        </div>
 
                     #end
 
-                </div>
-
-
-
-                <!-- BATCH -->
-
-                <div class="detail">
-
-                    <div class="label">
-                        Batch
-                    </div>
-
-                    #set($data = "")
-                    #set($data = $rowProperties.get("batchYear"))
-
-                    #if($data && $data.size() > 0)
-
-                        #foreach($entry in $data.entrySet())
-
-                            <div class="value">
-                                $entry.value
-                            </div>
-
-                        #end
-
-                    #end
-
-                </div>
-
-
-
-                <!-- GRADE -->
-
-                <div class="detail">
-
-                    <div class="label">
-                        Grade
-                    </div>
-
-                    #set($data = "")
-                    #set($data = $rowProperties.get("grade"))
-
-                    #if($data && $data.size() > 0)
-
-                        #foreach($entry in $data.entrySet())
-
-                            <div class="value">
-                                $entry.value
-                            </div>
-
-                        #end
-
-                    #end
-
-                </div>
-
-
-
-                <!-- ISSUE DATE -->
-
-                <div class="detail">
-
-                    <div class="label">
-                        Issued On
-                    </div>
-
-                    #set($data = "")
-                    #set($data = $rowProperties.get("issueDate"))
-
-                    #if($data && $data.size() > 0)
-
-                        #foreach($entry in $data.entrySet())
-
-                            <div class="value">
-                                $entry.value
-                            </div>
-
-                        #end
-
-                    #end
-
-                </div>
+                #end
 
             </div>
 
 
+            <!-- ISSUE DATE -->
 
-            <!-- =================================================
-                 FOOTER
-                 ================================================= -->
+            <div class="detail">
 
-            <div class="footer">
-
-                <div class="verification">
-                    Digitally Verifiable Credential
+                <div class="label">
+                    Issued On
                 </div>
+
+                #set($data = $rowProperties.get("issueDate"))
+
+                #if($data && $data.size() > 0)
+
+                    #foreach($entry in $data.entrySet())
+
+                        <div class="value">
+                            $entry.value
+                        </div>
+
+                    #end
+
+                #end
 
             </div>
 
+        </div>
+
+
+        <!-- =================================================
+             CERTIFICATE ID
+             ================================================= -->
+
+        #set($data = $rowProperties.get("certificateKey"))
+
+        #if($data && $data.size() > 0)
+
+            #foreach($entry in $data.entrySet())
+
+                <div class="certificate-id">
+                    Certificate ID: $entry.value
+                </div>
+
+            #end
+
+        #end
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <div class="footer">
+
+            <div class="verification">
+                Digitally Verifiable Credential
+            </div>
 
         </div>
 
@@ -460,45 +516,58 @@
 </div>
 
 
-
 <!-- =========================================================
-     PAGE 2 - QR CODE ONLY
+     PAGE 2
+     QR CODE ONLY
      ========================================================= -->
 
 <div class="qr-page">
 
-    <div class="qr-container">
+    <div class="qr-page-inner">
 
         <div class="qr-title">
             Verify Certificate
         </div>
 
+        <div class="qr-description">
+            Scan the QR code below to verify this credential.
+        </div>
+
 
         <!-- =================================================
-             IMPORTANT:
-             Mimoto v0.21.0 provides QR as Base64.
-             
-             DO NOT use:
-             src="$qrCodeImage"
+             QR CODE
 
-             USE:
+             IMPORTANT:
+             Mimoto provides QR image as Base64.
+             Therefore use:
+
              data:image/png;base64,$qrCodeImage
+
+             Do NOT use:
+             src="$qrCodeImage"
              ================================================= -->
 
         #if($qrCodeImage && $qrCodeImage != "")
 
-            <img
-                src="data:image/png;base64,$qrCodeImage"
-                alt="QR Code"
-                class="qr-image"
-            />
+            <div class="qr-code-container">
+
+                <img
+                    src="data:image/png;base64,$qrCodeImage"
+                    alt="Verification QR Code"
+                    class="qr-code"
+                />
+
+            </div>
+
+            <div class="qr-label">
+                Scan to Verify
+            </div>
+
+            <div class="qr-help">
+                Use your credential verifier to scan this QR code.
+            </div>
 
         #end
-
-
-        <div class="qr-label">
-            Scan to Verify
-        </div>
 
     </div>
 

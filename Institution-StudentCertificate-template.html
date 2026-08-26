@@ -19,15 +19,25 @@
 
         body {
             font-family: Georgia, "Times New Roman", serif;
-            background: #f4f1ea;
+            background: #ffffff;
+        }
+
+
+        /* =====================================================
+           PAGE 1 - CERTIFICATE
+           ===================================================== */
+
+        .certificate-page {
             width: 100%;
-            min-height: 100vh;
+            height: 100vh;
             padding: 30px;
+            page-break-after: always;
+            position: relative;
         }
 
         .certificate {
             width: 100%;
-            min-height: 700px;
+            height: 100%;
             background: #ffffff;
             border: 10px solid #7C4616;
             padding: 55px 65px;
@@ -138,33 +148,53 @@
             margin-top: 55px;
             padding-top: 25px;
             border-top: 1px solid #eeeeee;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            text-align: center;
         }
 
         .verification {
-            text-align: center;
             font-size: 12px;
             color: #999999;
         }
 
-        .qr {
-            margin-left: 70px;
+
+        /* =====================================================
+           PAGE 2 - QR CODE ONLY
+           ===================================================== */
+
+        .qr-page {
+            width: 100%;
+            height: 100vh;
+            page-break-before: always;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
         }
 
-        .qr img {
-            width: 90px;
-            height: 90px;
+        .qr-container {
+            text-align: center;
+        }
+
+        .qr-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #7C4616;
+            margin-bottom: 25px;
+        }
+
+        .qr-image {
+            width: 350px;
+            height: 350px;
+            display: block;
+            margin: 0 auto;
         }
 
         .qr-label {
-            margin-top: 5px;
-            font-size: 10px;
-            color: #999999;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777777;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
     </style>
@@ -174,261 +204,306 @@
 
 <body>
 
-<div class="certificate">
 
-<div class="content">
+<!-- =========================================================
+     PAGE 1 - CERTIFICATE
+     ========================================================= -->
+
+<div class="certificate-page">
+
+    <div class="certificate">
+
+        <div class="content">
 
 
-    <!-- ================================================= -->
-    <!-- INSTITUTION NAME -->
-    <!-- ================================================= -->
+            <!-- =================================================
+                 INSTITUTION NAME
+                 ================================================= -->
 
-    <div class="header">
+            <div class="header">
 
-        #set($data = $rowProperties.get("institutionName"))
+                #set($data = "")
+                #set($data = $rowProperties.get("institutionName"))
 
-        #if($data && $data.size() > 0)
+                #if($data && $data.size() > 0)
 
-            #foreach($entry in $data.entrySet())
+                    #foreach($entry in $data.entrySet())
 
-                <div class="institution">
-                    $entry.value
+                        <div class="institution">
+                            $entry.value
+                        </div>
+
+                    #end
+
+                #end
+
+
+                <!-- CERTIFICATE TITLE -->
+
+                <div class="title">
+                    Certificate of Achievement
                 </div>
 
-            #end
 
-        #end
+                <!-- =================================================
+                     CERTIFICATE TYPE
+                     ================================================= -->
+
+                #set($data = "")
+                #set($data = $rowProperties.get("certificateType"))
+
+                #if($data && $data.size() > 0)
+
+                    #foreach($entry in $data.entrySet())
+
+                        <div class="certificate-type">
+                            $entry.value
+                        </div>
+
+                    #end
+
+                #end
+
+            </div>
 
 
-        <!-- Certificate title -->
 
-        <div class="title">
-            Certificate of Achievement
+            <!-- =================================================
+                 STUDENT
+                 ================================================= -->
+
+            <div class="main">
+
+                <div class="intro">
+                    This is to certify that
+                </div>
+
+
+                #set($data = "")
+                #set($data = $rowProperties.get("studentName"))
+
+                #if($data && $data.size() > 0)
+
+                    #foreach($entry in $data.entrySet())
+
+                        <div class="student-name">
+                            $entry.value
+                        </div>
+
+                    #end
+
+                #end
+
+
+                <div class="completion">
+                    has successfully completed the program
+                </div>
+
+
+                <!-- =================================================
+                     PROGRAM
+                     ================================================= -->
+
+                #set($data = "")
+                #set($data = $rowProperties.get("program"))
+
+                #if($data && $data.size() > 0)
+
+                    #foreach($entry in $data.entrySet())
+
+                        <div class="program">
+                            $entry.value
+                        </div>
+
+                    #end
+
+                #end
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DETAILS
+                 ================================================= -->
+
+            <div class="details">
+
+
+                <!-- STUDENT ID -->
+
+                <div class="detail">
+
+                    <div class="label">
+                        Student ID
+                    </div>
+
+                    #set($data = "")
+                    #set($data = $rowProperties.get("studentId"))
+
+                    #if($data && $data.size() > 0)
+
+                        #foreach($entry in $data.entrySet())
+
+                            <div class="value">
+                                $entry.value
+                            </div>
+
+                        #end
+
+                    #end
+
+                </div>
+
+
+
+                <!-- BATCH -->
+
+                <div class="detail">
+
+                    <div class="label">
+                        Batch
+                    </div>
+
+                    #set($data = "")
+                    #set($data = $rowProperties.get("batchYear"))
+
+                    #if($data && $data.size() > 0)
+
+                        #foreach($entry in $data.entrySet())
+
+                            <div class="value">
+                                $entry.value
+                            </div>
+
+                        #end
+
+                    #end
+
+                </div>
+
+
+
+                <!-- GRADE -->
+
+                <div class="detail">
+
+                    <div class="label">
+                        Grade
+                    </div>
+
+                    #set($data = "")
+                    #set($data = $rowProperties.get("grade"))
+
+                    #if($data && $data.size() > 0)
+
+                        #foreach($entry in $data.entrySet())
+
+                            <div class="value">
+                                $entry.value
+                            </div>
+
+                        #end
+
+                    #end
+
+                </div>
+
+
+
+                <!-- ISSUE DATE -->
+
+                <div class="detail">
+
+                    <div class="label">
+                        Issued On
+                    </div>
+
+                    #set($data = "")
+                    #set($data = $rowProperties.get("issueDate"))
+
+                    #if($data && $data.size() > 0)
+
+                        #foreach($entry in $data.entrySet())
+
+                            <div class="value">
+                                $entry.value
+                            </div>
+
+                        #end
+
+                    #end
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FOOTER
+                 ================================================= -->
+
+            <div class="footer">
+
+                <div class="verification">
+                    Digitally Verifiable Credential
+                </div>
+
+            </div>
+
+
         </div>
-
-
-        <!-- ================================================= -->
-        <!-- CERTIFICATE TYPE -->
-        <!-- ================================================= -->
-
-        #set($data = $rowProperties.get("certificateType"))
-
-        #if($data && $data.size() > 0)
-
-            #foreach($entry in $data.entrySet())
-
-                <div class="certificate-type">
-                    $entry.value
-                </div>
-
-            #end
-
-        #end
 
     </div>
 
+</div>
 
 
-    <!-- ================================================= -->
-    <!-- STUDENT -->
-    <!-- ================================================= -->
 
-    <div class="main">
+<!-- =========================================================
+     PAGE 2 - QR CODE ONLY
+     ========================================================= -->
 
-        <div class="intro">
-            This is to certify that
+<div class="qr-page">
+
+    <div class="qr-container">
+
+        <div class="qr-title">
+            Verify Certificate
         </div>
 
 
-        #set($data = $rowProperties.get("studentName"))
-
-        #if($data && $data.size() > 0)
-
-            #foreach($entry in $data.entrySet())
-
-                <div class="student-name">
-                    $entry.value
-                </div>
-
-            #end
-
-        #end
-
-
-        <div class="completion">
-            has successfully completed the program
-        </div>
-
-
-        <!-- ================================================= -->
-        <!-- PROGRAM -->
-        <!-- ================================================= -->
-
-        #set($data = $rowProperties.get("program"))
-
-        #if($data && $data.size() > 0)
-
-            #foreach($entry in $data.entrySet())
-
-                <div class="program">
-                    $entry.value
-                </div>
-
-            #end
-
-        #end
-
-    </div>
-
-
-
-    <!-- ================================================= -->
-    <!-- DETAILS -->
-    <!-- ================================================= -->
-
-    <div class="details">
-
-
-        <!-- STUDENT ID -->
-
-        <div class="detail">
-
-            <div class="label">
-                Student ID
-            </div>
-
-            #set($data = $rowProperties.get("studentId"))
-
-            #if($data && $data.size() > 0)
-
-                #foreach($entry in $data.entrySet())
-
-                    <div class="value">
-                        $entry.value
-                    </div>
-
-                #end
-
-            #end
-
-        </div>
-
-
-
-        <!-- BATCH -->
-
-        <div class="detail">
-
-            <div class="label">
-                Batch
-            </div>
-
-            #set($data = $rowProperties.get("batchYear"))
-
-            #if($data && $data.size() > 0)
-
-                #foreach($entry in $data.entrySet())
-
-                    <div class="value">
-                        $entry.value
-                    </div>
-
-                #end
-
-            #end
-
-        </div>
-
-
-
-        <!-- GRADE -->
-
-        <div class="detail">
-
-            <div class="label">
-                Grade
-            </div>
-
-            #set($data = $rowProperties.get("grade"))
-
-            #if($data && $data.size() > 0)
-
-                #foreach($entry in $data.entrySet())
-
-                    <div class="value">
-                        $entry.value
-                    </div>
-
-                #end
-
-            #end
-
-        </div>
-
-
-
-        <!-- ISSUE DATE -->
-
-        <div class="detail">
-
-            <div class="label">
-                Issued On
-            </div>
-
-            #set($data = $rowProperties.get("issueDate"))
-
-            #if($data && $data.size() > 0)
-
-                #foreach($entry in $data.entrySet())
-
-                    <div class="value">
-                        $entry.value
-                    </div>
-
-                #end
-
-            #end
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ================================================= -->
-    <!-- QR CODE -->
-    <!-- ================================================= -->
-
-    <div class="footer">
-
-        <div class="verification">
-            Digitally Verifiable Credential
-        </div>
-
+        <!-- =================================================
+             IMPORTANT:
+             Mimoto v0.21.0 provides QR as Base64.
+             
+             DO NOT use:
+             src="$qrCodeImage"
+
+             USE:
+             data:image/png;base64,$qrCodeImage
+             ================================================= -->
 
         #if($qrCodeImage && $qrCodeImage != "")
 
-            <div class="qr">
-
-                <img
-                    src="$qrCodeImage"
-                    alt="Verification QR Code"
-                >
-
-                <div class="qr-label">
-                    Scan to Verify
-                </div>
-
-            </div>
+            <img
+                src="data:image/png;base64,$qrCodeImage"
+                alt="QR Code"
+                class="qr-image"
+            />
 
         #end
 
+
+        <div class="qr-label">
+            Scan to Verify
+        </div>
+
     </div>
 
-
 </div>
 
-</div>
 
 </body>
 

@@ -8,8 +8,6 @@
 
     <style>
 
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
-
         @page {
             size: A4 landscape;
             margin: 0;
@@ -22,96 +20,45 @@
         }
 
         body {
-            font-family: "EB Garamond", Georgia, "Times New Roman", serif;
-            background: #e9e3d3;
+            font-family: Georgia, "Times New Roman", serif;
+            background: #f4f1ea;
             width: 100%;
             margin: 0;
             padding: 20px;
         }
 
-        /* =====================================================
-           DESIGN TOKENS
-           - ink:    deep navy, primary text / rules
-           - gold:   antique gold, accents
-           - gold-lt: pale gold, hairlines
-           - paper:  warm ivory background
-           - muted:  soft warm grey for secondary text
-           ===================================================== */
-
-        :root {
-            --ink: #182849;
-            --ink-soft: #3c4a6b;
-            --gold: #a9822f;
-            --gold-deep: #8a6a24;
-            --gold-lt: #d9c691;
-            --paper: #fbf7ee;
-            --paper-line: #e6dcc0;
-            --muted: #746c5c;
-        }
 
         /* =====================================================
-           FIRST PAGE - CERTIFICATE
+           PAGE 1 - CERTIFICATE
            ===================================================== */
 
         .certificate-page {
             width: 100%;
             height: 750px;
-            background: var(--paper);
+            background: #ffffff;
+            border: 10px solid #7C4616;
+            padding: 42px 60px;
             position: relative;
             page-break-after: always;
             overflow: hidden;
-            border: 1px solid var(--gold-lt);
-            outline: 8px solid var(--ink);
-            outline-offset: -18px;
         }
 
         .certificate-page:before {
             content: "";
             position: absolute;
-            top: 30px;
-            left: 30px;
-            right: 30px;
-            bottom: 30px;
-            border: 1.5px solid var(--gold);
-            pointer-events: none;
+            top: 14px;
+            left: 14px;
+            right: 14px;
+            bottom: 14px;
+            border: 2px solid #d9c7a3;
         }
-
-        .certificate-page:after {
-            content: "";
-            position: absolute;
-            top: 34px;
-            left: 34px;
-            right: 34px;
-            bottom: 34px;
-            border: 1px solid var(--gold-lt);
-            pointer-events: none;
-        }
-
-        /* Corner flourishes */
-
-        .corner {
-            position: absolute;
-            width: 46px;
-            height: 46px;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .corner svg { width: 100%; height: 100%; }
-
-        .corner-tl { top: 26px; left: 26px; }
-        .corner-tr { top: 26px; right: 26px; transform: scaleX(-1); }
-        .corner-bl { bottom: 26px; left: 26px; transform: scaleY(-1); }
-        .corner-br { bottom: 26px; right: 26px; transform: scale(-1, -1); }
 
         .content {
             position: relative;
             z-index: 1;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            padding: 50px 76px 34px;
         }
+
 
         /* =====================================================
            HEADER
@@ -119,56 +66,31 @@
 
         .header {
             text-align: center;
-            flex-shrink: 0;
         }
 
         .institution {
-            font-family: "EB Garamond", Georgia, serif;
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--ink);
+            font-size: 24px;
+            font-weight: bold;
+            color: #7C4616;
             text-transform: uppercase;
-            letter-spacing: 4px;
-        }
-
-        .header-rule {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin: 10px auto 16px;
-            width: 220px;
-        }
-
-        .header-rule .line {
-            flex: 1;
-            height: 1px;
-            background: var(--gold-lt);
-        }
-
-        .header-rule .diamond {
-            width: 6px;
-            height: 6px;
-            background: var(--gold);
-            transform: rotate(45deg);
+            letter-spacing: 2px;
         }
 
         .title {
-            font-family: "Cormorant Garamond", Georgia, serif;
-            font-size: 46px;
-            font-weight: 700;
-            font-style: italic;
-            color: var(--ink);
-            letter-spacing: 0.5px;
+            margin-top: 12px;
+            font-size: 38px;
+            font-weight: bold;
+            color: #292929;
         }
 
         .certificate-type {
-            margin-top: 6px;
-            font-size: 12px;
-            color: var(--muted);
+            margin-top: 8px;
+            font-size: 14px;
+            color: #777777;
             text-transform: uppercase;
-            letter-spacing: 3.5px;
+            letter-spacing: 3px;
         }
+
 
         /* =====================================================
            MAIN CONTENT
@@ -176,55 +98,37 @@
 
         .main {
             text-align: center;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 6px 0 10px;
+            margin-top: 34px;
         }
 
         .intro {
-            font-size: 16px;
-            font-style: italic;
-            color: var(--ink-soft);
+            font-size: 17px;
+            color: #444444;
         }
 
         .student-name {
-            margin: 14px auto 6px;
-            padding: 0 30px 10px;
-            max-width: 720px;
-            position: relative;
-            font-family: "Cormorant Garamond", Georgia, serif;
-            font-size: 40px;
-            font-weight: 600;
-            color: var(--ink);
-        }
-
-        .student-name:after {
-            content: "";
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 12px auto;
+            padding: 7px 20px;
+            max-width: 700px;
+            border-bottom: 1px solid #d9c7a3;
+            font-size: 34px;
+            font-weight: bold;
+            color: #292929;
         }
 
         .completion {
-            margin-top: 16px;
-            font-size: 16px;
-            font-style: italic;
-            color: var(--ink-soft);
+            margin-top: 12px;
+            font-size: 17px;
+            color: #444444;
         }
 
         .program {
-            margin-top: 8px;
-            font-family: "Cormorant Garamond", Georgia, serif;
-            font-size: 25px;
-            font-weight: 600;
-            color: var(--gold-deep);
+            margin-top: 10px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #7C4616;
         }
+
 
         /* =====================================================
            DETAILS
@@ -232,11 +136,9 @@
 
         .details {
             width: 100%;
-            max-width: 640px;
-            margin: 26px auto 0;
+            margin-top: 34px;
             display: flex;
             justify-content: space-between;
-            flex-shrink: 0;
         }
 
         .detail {
@@ -245,19 +147,20 @@
         }
 
         .label {
-            font-size: 9.5px;
-            color: var(--muted);
+            font-size: 11px;
+            color: #999999;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 6px;
+            letter-spacing: 1px;
+            margin-bottom: 7px;
         }
 
         .value {
-            font-size: 15px;
-            font-weight: 600;
-            color: var(--ink);
+            font-size: 16px;
+            font-weight: bold;
+            color: #292929;
             word-wrap: break-word;
         }
+
 
         /* =====================================================
            CERTIFICATE ID
@@ -265,169 +168,126 @@
 
         .certificate-id {
             text-align: center;
-            margin-top: 14px;
-            font-size: 8.5px;
-            color: #b5ab94;
-            letter-spacing: 1px;
+            margin-top: 16px;
+            font-size: 9px;
+            color: #aaaaaa;
+            letter-spacing: 0.8px;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            flex-shrink: 0;
         }
+
 
         /* =====================================================
            BOTTOM SECTION
-           Flex row, bottom-aligned. No absolute positioning so the
-           row height is always determined by its tallest column -
-           no more empty gap when a signature image is missing.
            ===================================================== */
 
         .bottom-section {
-            flex-shrink: 0;
-            margin-top: 22px;
-            padding-top: 16px;
-            border-top: 1px solid var(--paper-line);
-            display: flex;
-            align-items: flex-end;
-            justify-content: space-between;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 8px;
+            height: 78px;
+            border-top: 1px solid #eeeeee;
+            padding-top: 7px;
         }
+
 
         /* =====================================================
            ISSUING AUTHORITY
            ===================================================== */
 
         .issuer-section {
+            position: absolute;
+            left: 0;
+            bottom: 0;
             width: 240px;
             text-align: left;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .issuer-signature-slot {
-            height: 40px;
-            display: flex;
-            align-items: flex-end;
-            margin-bottom: 4px;
         }
 
         .issuer-signature {
-            max-width: 150px;
-            max-height: 40px;
+            width: 120px;
+            height: 32px;
             object-fit: contain;
             object-position: left bottom;
             display: block;
+            margin-bottom: 2px;
         }
 
         .issuer-line {
-            width: 190px;
-            border-top: 1px solid var(--ink);
-            margin-bottom: 5px;
+            width: 170px;
+            border-top: 1px solid #292929;
+            margin-bottom: 3px;
         }
 
         .issuer-name {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--ink);
-            line-height: 1.25;
+            font-size: 12px;
+            font-weight: bold;
+            color: #292929;
+            line-height: 1.2;
         }
 
         .issuer-designation {
             font-size: 10px;
-            color: var(--muted);
-            font-style: italic;
-            margin-top: 1px;
-            line-height: 1.25;
+            color: #777777;
+            margin-top: 2px;
+            line-height: 1.2;
         }
 
-        /* =====================================================
-           SEAL  (signature design element)
-           ===================================================== */
-
-        .seal {
-            width: 92px;
-            flex-shrink: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding-bottom: 2px;
-        }
-
-        .seal-medal {
-            width: 74px;
-            height: 74px;
-        }
-
-        .seal-caption {
-            margin-top: 4px;
-            font-size: 8px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            color: var(--gold-deep);
-        }
 
         /* =====================================================
            DIGITAL VERIFICATION
            ===================================================== */
 
         .verification {
-            width: 240px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 285px;
             text-align: right;
         }
 
         .verification-title {
-            font-size: 11.5px;
-            font-weight: 600;
-            color: var(--ink);
+            font-size: 12px;
+            font-weight: bold;
+            color: #7C4616;
             text-transform: uppercase;
             letter-spacing: 1.5px;
         }
 
         .verification-text {
-            margin-top: 5px;
+            margin-top: 4px;
             font-size: 9px;
-            color: var(--muted);
-            line-height: 1.5;
+            color: #999999;
+            line-height: 1.4;
         }
 
+
         /* =====================================================
-           SECOND PAGE - QR CODE
+           PAGE 2 - QR CODE
            ===================================================== */
 
         .qr-page {
             width: 100%;
             height: 750px;
-            background: var(--paper);
+            background: #ffffff;
+            border: 10px solid #7C4616;
             position: relative;
             text-align: center;
             page-break-before: always;
             page-break-after: auto;
+            padding: 60px;
             overflow: hidden;
-            border: 1px solid var(--gold-lt);
-            outline: 8px solid var(--ink);
-            outline-offset: -18px;
         }
 
         .qr-page:before {
             content: "";
             position: absolute;
-            top: 30px;
-            left: 30px;
-            right: 30px;
-            bottom: 30px;
-            border: 1.5px solid var(--gold);
-            pointer-events: none;
-        }
-
-        .qr-page:after {
-            content: "";
-            position: absolute;
-            top: 34px;
-            left: 34px;
-            right: 34px;
-            bottom: 34px;
-            border: 1px solid var(--gold-lt);
-            pointer-events: none;
+            top: 14px;
+            left: 14px;
+            right: 14px;
+            bottom: 14px;
+            border: 2px solid #d9c7a3;
         }
 
         .qr-page-inner {
@@ -435,68 +295,52 @@
             z-index: 1;
             width: 100%;
             height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 60px;
-        }
-
-        .qr-eyebrow {
-            font-size: 12px;
-            font-weight: 600;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            margin-bottom: 14px;
+            min-height: 540px;
+            border: 2px solid #d9c7a3;
+            padding-top: 45px;
         }
 
         .qr-title {
-            font-family: "Cormorant Garamond", Georgia, serif;
-            font-size: 36px;
-            font-weight: 700;
-            font-style: italic;
-            color: var(--ink);
-            margin-bottom: 14px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #7C4616;
+            margin-bottom: 15px;
         }
 
         .qr-description {
-            font-size: 15px;
-            color: var(--ink-soft);
-            margin-bottom: 30px;
+            font-size: 16px;
+            color: #555555;
+            margin-bottom: 28px;
         }
 
         .qr-code-container {
-            width: 300px;
-            height: 300px;
+            width: 330px;
+            height: 330px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #ffffff;
-            border: 1px solid var(--paper-line);
-            padding: 18px;
         }
 
         .qr-code {
-            width: 100%;
-            height: 100%;
+            width: 300px;
+            height: 300px;
             object-fit: contain;
         }
 
         .qr-label {
-            margin-top: 18px;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--gold-deep);
+            margin-top: 16px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #7C4616;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
 
         .qr-help {
-            margin-top: 8px;
-            font-size: 11.5px;
-            color: var(--muted);
+            margin-top: 10px;
+            font-size: 12px;
+            color: #888888;
         }
 
     </style>
@@ -513,36 +357,6 @@
 
 <div class="certificate-page">
 
-    <!-- Corner flourishes -->
-    <div class="corner corner-tl">
-        <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 2 L2 20 M2 2 L20 2" stroke="#a9822f" stroke-width="1.4" fill="none"/>
-            <path d="M2 30 Q2 2 30 2" stroke="#d9c691" stroke-width="1" fill="none"/>
-            <circle cx="2" cy="2" r="2.4" fill="#a9822f"/>
-        </svg>
-    </div>
-    <div class="corner corner-tr">
-        <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 2 L2 20 M2 2 L20 2" stroke="#a9822f" stroke-width="1.4" fill="none"/>
-            <path d="M2 30 Q2 2 30 2" stroke="#d9c691" stroke-width="1" fill="none"/>
-            <circle cx="2" cy="2" r="2.4" fill="#a9822f"/>
-        </svg>
-    </div>
-    <div class="corner corner-bl">
-        <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 2 L2 20 M2 2 L20 2" stroke="#a9822f" stroke-width="1.4" fill="none"/>
-            <path d="M2 30 Q2 2 30 2" stroke="#d9c691" stroke-width="1" fill="none"/>
-            <circle cx="2" cy="2" r="2.4" fill="#a9822f"/>
-        </svg>
-    </div>
-    <div class="corner corner-br">
-        <svg viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 2 L2 20 M2 2 L20 2" stroke="#a9822f" stroke-width="1.4" fill="none"/>
-            <path d="M2 30 Q2 2 30 2" stroke="#d9c691" stroke-width="1" fill="none"/>
-            <circle cx="2" cy="2" r="2.4" fill="#a9822f"/>
-        </svg>
-    </div>
-
     <div class="content">
 
 
@@ -551,6 +365,9 @@
              ================================================= -->
 
         <div class="header">
+
+
+            <!-- INSTITUTION NAME -->
 
             #set($data = $rowProperties.get("institutionName"))
 
@@ -567,17 +384,14 @@
             #end
 
 
-            <div class="header-rule">
-                <span class="line"></span>
-                <span class="diamond"></span>
-                <span class="line"></span>
-            </div>
-
+            <!-- TITLE -->
 
             <div class="title">
                 Certificate of Achievement
             </div>
 
+
+            <!-- CERTIFICATE TYPE -->
 
             #set($data = $rowProperties.get("certificateType"))
 
@@ -784,7 +598,7 @@
 
 
             <!-- =================================================
-                 ISSUER DATA
+                 GET ISSUER DATA
                  ================================================= -->
 
             #set($issuerNameData = $rowProperties.get("issuerName"))
@@ -793,12 +607,10 @@
 
 
             <!-- =================================================
-                 ISSUER SECTION
+                 ISSUING AUTHORITY
 
-                 Always reserves the same layout space (signature
-                 slot is a fixed-height flex box) so the row lines
-                 up identically whether or not a signature image
-                 is present.
+                 This entire section is displayed only when
+                 at least one issuer field is available.
                  ================================================= -->
 
             #if(
@@ -810,43 +622,55 @@
                 <div class="issuer-section">
 
 
-                    <!-- SIGNATURE -->
+                    <!-- =================================================
+                         SIGNATURE
+                         ================================================= -->
 
-                    <div class="issuer-signature-slot">
+                    #if($issuerSignatureData && $issuerSignatureData.size() > 0)
 
-                        #if($issuerSignatureData && $issuerSignatureData.size() > 0)
+                        #foreach($entry in $issuerSignatureData.entrySet())
 
-                            #foreach($entry in $issuerSignatureData.entrySet())
+                            #if($entry.value && $entry.value != "")
 
                                 #set($signature = $entry.value)
 
-                                #if($signature && $signature != "")
+                                <!--
+                                    If issuerSignature is already a
+                                    complete image URL, use it directly.
+                                -->
 
-                                    #if($signature.startsWith("http://") || $signature.startsWith("https://"))
+                                #if($signature.startsWith("http://") || $signature.startsWith("https://"))
 
-                                        <img
-                                            src="$signature"
-                                            alt="Issuer Signature"
-                                            class="issuer-signature"
-                                        />
+                                    <img
+                                        src="$signature"
+                                        alt="Issuer Signature"
+                                        class="issuer-signature"
+                                    />
 
-                                    #elseif($signature.startsWith("data:image/"))
+                                #elseif($signature.startsWith("data:image/"))
 
-                                        <img
-                                            src="$signature"
-                                            alt="Issuer Signature"
-                                            class="issuer-signature"
-                                        />
+                                    <!--
+                                        If issuerSignature already contains
+                                        data:image/png;base64,...
+                                    -->
 
-                                    #else
+                                    <img
+                                        src="$signature"
+                                        alt="Issuer Signature"
+                                        class="issuer-signature"
+                                    />
 
-                                        <img
-                                            src="data:image/png;base64,$signature"
-                                            alt="Issuer Signature"
-                                            class="issuer-signature"
-                                        />
+                                #else
 
-                                    #end
+                                    <!--
+                                        Otherwise assume it is Base64.
+                                    -->
+
+                                    <img
+                                        src="data:image/png;base64,$signature"
+                                        alt="Issuer Signature"
+                                        class="issuer-signature"
+                                    />
 
                                 #end
 
@@ -854,15 +678,19 @@
 
                         #end
 
-                    </div>
+                    #end
 
 
-                    <!-- SIGNATURE LINE -->
+                    <!-- =================================================
+                         SIGNATURE LINE
+                         ================================================= -->
 
                     <div class="issuer-line"></div>
 
 
-                    <!-- ISSUER NAME -->
+                    <!-- =================================================
+                         ISSUER NAME
+                         ================================================= -->
 
                     #if($issuerNameData && $issuerNameData.size() > 0)
 
@@ -877,7 +705,9 @@
                     #end
 
 
-                    <!-- ISSUER DESIGNATION -->
+                    <!-- =================================================
+                         ISSUER DESIGNATION
+                         ================================================= -->
 
                     #if($issuerDesignationData && $issuerDesignationData.size() > 0)
 
@@ -894,24 +724,6 @@
                 </div>
 
             #end
-
-
-            <!-- =================================================
-                 SEAL  (centered signature design element)
-                 ================================================= -->
-
-            <div class="seal">
-                <svg class="seal-medal" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="50" cy="50" r="46" fill="none" stroke="#d9c691" stroke-width="1"/>
-                    <circle cx="50" cy="50" r="40" fill="none" stroke="#a9822f" stroke-width="1.6"/>
-                    <circle cx="50" cy="50" r="34" fill="#fbf7ee" stroke="#a9822f" stroke-width="1"/>
-                    <path d="M32 58 C26 46 30 34 40 28 C36 40 37 50 42 58 Z" fill="#a9822f" opacity="0.85"/>
-                    <path d="M68 58 C74 46 70 34 60 28 C64 40 63 50 58 58 Z" fill="#a9822f" opacity="0.85"/>
-                    <path d="M50 24 L54 40 L50 56 L46 40 Z" fill="#182849"/>
-                    <circle cx="50" cy="50" r="3" fill="#182849"/>
-                </svg>
-                <div class="seal-caption">Est. Excellence</div>
-            </div>
 
 
             <!-- =================================================
@@ -948,18 +760,18 @@
 
     <div class="qr-page-inner">
 
-        <div class="qr-eyebrow">
-            Credential Verification
-        </div>
-
         <div class="qr-title">
-            Verify This Certificate
+            Verify Certificate
         </div>
 
         <div class="qr-description">
-            Scan the QR code below to confirm this credential is authentic.
+            Scan the QR code below to verify this credential.
         </div>
 
+
+        <!-- =================================================
+             QR CODE
+             ================================================= -->
 
         #if($qrCodeImage && $qrCodeImage != "")
 
@@ -980,7 +792,7 @@
 
 
             <div class="qr-help">
-                Use your credential verifier app to scan this QR code.
+                Use your credential verifier to scan this QR code.
             </div>
 
         #end

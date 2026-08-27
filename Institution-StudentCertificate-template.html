@@ -180,60 +180,19 @@
 
 
         /* =====================================================
-           FOOTER
+           ISSUER SECTION
+           ABOVE FOOTER
            ===================================================== */
 
-        .bottom-section {
+        .issuer-section {
             position: absolute;
             left: 60px;
-            right: 60px;
-            bottom: 28px;
-            height: 105px;
-            border-top: 1px solid #eeeeee;
-            padding-top: 12px;
+            bottom: 125px;
+            width: 260px;
+            min-height: 75px;
+            text-align: left;
             z-index: 10;
         }
-
-
-        /* =====================================================
-           FOOTER TABLE
-
-           Three columns:
-           1. Issuer / Signature
-           2. Digital Verification
-           3. Empty balancing column
-           ===================================================== */
-
-        .footer-table {
-            width: 100%;
-            height: 85px;
-            border-collapse: collapse;
-            table-layout: fixed;
-        }
-
-        .footer-left {
-            width: 30%;
-            text-align: left;
-            vertical-align: bottom;
-        }
-
-        .footer-center {
-            width: 50%;
-            text-align: center;
-            vertical-align: bottom;
-            padding: 0 20px;
-        }
-
-        .footer-right {
-            width: 20%;
-            text-align: right;
-            vertical-align: bottom;
-        }
-
-
-        /* =====================================================
-           ISSUER SIGNATURE
-           ===================================================== */
 
         .issuer-signature {
             width: 120px;
@@ -262,6 +221,43 @@
             color: #777777;
             margin-top: 2px;
             line-height: 1.2;
+        }
+
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        .bottom-section {
+            position: absolute;
+            left: 60px;
+            right: 60px;
+            bottom: 28px;
+            height: 75px;
+            border-top: 1px solid #eeeeee;
+            padding-top: 12px;
+            z-index: 10;
+        }
+
+
+        /* =====================================================
+           FOOTER TABLE
+
+           Footer remains independent from issuer section.
+           ===================================================== */
+
+        .footer-table {
+            width: 100%;
+            height: 60px;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        .footer-center {
+            width: 100%;
+            text-align: center;
+            vertical-align: middle;
+            padding: 0 40px;
         }
 
 
@@ -621,11 +617,125 @@
 
     <!-- =========================================================
          ISSUER DATA
+         SEPARATE FROM FOOTER
          ========================================================= -->
 
     #set($issuerNameData = $rowProperties.get("issuerName"))
     #set($issuerDesignationData = $rowProperties.get("issuerDesignation"))
     #set($issuerSignatureData = $rowProperties.get("issuerSignature"))
+
+
+    <!-- =========================================================
+         ISSUER SECTION
+         ========================================================= -->
+
+    #if(
+        ($issuerNameData && $issuerNameData.size() > 0) ||
+        ($issuerDesignationData && $issuerDesignationData.size() > 0) ||
+        ($issuerSignatureData && $issuerSignatureData.size() > 0)
+    )
+
+        <div class="issuer-section">
+
+
+            <!-- SIGNATURE -->
+
+            #if($issuerSignatureData && $issuerSignatureData.size() > 0)
+
+                #foreach($entry in $issuerSignatureData.entrySet())
+
+                    #if($entry.value && $entry.value != "")
+
+                        #set($signature = $entry.value)
+
+
+                        #if(
+                            $signature.startsWith("http://") ||
+                            $signature.startsWith("https://")
+                        )
+
+                            <img
+                                src="$signature"
+                                alt="Issuer Signature"
+                                class="issuer-signature"
+                            />
+
+
+                        #elseif($signature.startsWith("data:image/"))
+
+                            <img
+                                src="$signature"
+                                alt="Issuer Signature"
+                                class="issuer-signature"
+                            />
+
+
+                        #else
+
+                            <img
+                                src="data:image/png;base64,$signature"
+                                alt="Issuer Signature"
+                                class="issuer-signature"
+                            />
+
+                        #end
+
+                    #end
+
+                #end
+
+            #end
+
+
+            <!-- SIGNATURE LINE -->
+
+            #if($issuerSignatureData && $issuerSignatureData.size() > 0)
+
+                <div class="issuer-line"></div>
+
+            #end
+
+
+            <!-- ISSUER NAME -->
+
+            #if($issuerNameData && $issuerNameData.size() > 0)
+
+                #foreach($entry in $issuerNameData.entrySet())
+
+                    #if($entry.value && $entry.value != "")
+
+                        <div class="issuer-name">
+                            $entry.value
+                        </div>
+
+                    #end
+
+                #end
+
+            #end
+
+
+            <!-- ISSUER DESIGNATION -->
+
+            #if($issuerDesignationData && $issuerDesignationData.size() > 0)
+
+                #foreach($entry in $issuerDesignationData.entrySet())
+
+                    #if($entry.value && $entry.value != "")
+
+                        <div class="issuer-designation">
+                            $entry.value
+                        </div>
+
+                    #end
+
+                #end
+
+            #end
+
+        </div>
+
+    #end
 
 
     <!-- =========================================================
@@ -637,121 +747,6 @@
         <table class="footer-table">
 
             <tr>
-
-
-                <!-- =================================================
-                     LEFT COLUMN
-                     SIGNATURE + NAME + DESIGNATION
-                     ================================================= -->
-
-                <td class="footer-left">
-
-                    #if($issuerSignatureData && $issuerSignatureData.size() > 0)
-
-                        #foreach($entry in $issuerSignatureData.entrySet())
-
-                            #if($entry.value && $entry.value != "")
-
-                                #set($signature = $entry.value)
-
-
-                                <!-- PUBLIC IMAGE URL -->
-
-                                #if(
-                                    $signature.startsWith("http://") ||
-                                    $signature.startsWith("https://")
-                                )
-
-                                    <img
-                                        src="$signature"
-                                        alt="Issuer Signature"
-                                        class="issuer-signature"
-                                    />
-
-
-                                <!-- DATA URL -->
-
-                                #elseif($signature.startsWith("data:image/"))
-
-                                    <img
-                                        src="$signature"
-                                        alt="Issuer Signature"
-                                        class="issuer-signature"
-                                    />
-
-
-                                <!-- RAW BASE64 -->
-
-                                #else
-
-                                    <img
-                                        src="data:image/png;base64,$signature"
-                                        alt="Issuer Signature"
-                                        class="issuer-signature"
-                                    />
-
-                                #end
-
-                            #end
-
-                        #end
-
-                    #end
-
-
-                    <!-- SIGNATURE LINE -->
-
-                    #if($issuerSignatureData && $issuerSignatureData.size() > 0)
-
-                        <div class="issuer-line"></div>
-
-                    #end
-
-
-                    <!-- ISSUER NAME -->
-
-                    #if($issuerNameData && $issuerNameData.size() > 0)
-
-                        #foreach($entry in $issuerNameData.entrySet())
-
-                            #if($entry.value && $entry.value != "")
-
-                                <div class="issuer-name">
-                                    $entry.value
-                                </div>
-
-                            #end
-
-                        #end
-
-                    #end
-
-
-                    <!-- ISSUER DESIGNATION -->
-
-                    #if($issuerDesignationData && $issuerDesignationData.size() > 0)
-
-                        #foreach($entry in $issuerDesignationData.entrySet())
-
-                            #if($entry.value && $entry.value != "")
-
-                                <div class="issuer-designation">
-                                    $entry.value
-                                </div>
-
-                            #end
-
-                        #end
-
-                    #end
-
-                </td>
-
-
-                <!-- =================================================
-                     CENTER COLUMN
-                     DIGITAL VERIFICATION
-                     ================================================= -->
 
                 <td class="footer-center">
 
@@ -765,16 +760,6 @@
                     </div>
 
                 </td>
-
-
-                <!-- =================================================
-                     RIGHT COLUMN
-                     EMPTY - BALANCING SPACE
-                     ================================================= -->
-
-                <td class="footer-right">
-                </td>
-
 
             </tr>
 

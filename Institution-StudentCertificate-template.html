@@ -28,7 +28,7 @@
         }
 
         /* =====================================================
-           PAGE 1
+           PAGE 1 - CERTIFICATE
            ===================================================== */
 
         .certificate-page {
@@ -210,23 +210,13 @@
         }
 
         /* =====================================================
-           BOTTOM SECTION
-           ===================================================== */
-
-        .bottom-section {
-            width: 92%;
-            margin: 16px auto 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            min-height: 92px;
-        }
-
-        /* =====================================================
-           ISSUER
+           ISSUING AUTHORITY
            ===================================================== */
 
         .issuer-section {
+            position: absolute;
+            left: 0;
+            bottom: 10px;
             width: 240px;
             text-align: left;
         }
@@ -263,38 +253,7 @@
         }
 
         /* =====================================================
-           VERIFICATION FOOTER
-           ===================================================== */
-
-        .verification-section {
-            width: 240px;
-            text-align: right;
-            padding-bottom: 3px;
-        }
-
-        .verification-icon {
-            font-size: 20px;
-            color: #7C4616;
-            margin-bottom: 4px;
-        }
-
-        .verification-title {
-            font-size: 11px;
-            font-weight: bold;
-            color: #7C4616;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .verification-text {
-            margin-top: 4px;
-            font-size: 9px;
-            color: #999999;
-            line-height: 1.4;
-        }
-
-        /* =====================================================
-           SECOND PAGE - QR
+           SECOND PAGE - QR CODE
            ===================================================== */
 
         .qr-page {
@@ -317,6 +276,16 @@
             right: 12px;
             bottom: 12px;
             border: 2px solid #d9c7a3;
+        }
+
+        .qr-page:after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid #eee5d3;
         }
 
         .qr-page-inner {
@@ -387,7 +356,10 @@
 
     <div class="content">
 
-        <!-- TOP ORNAMENT -->
+
+        <!-- =================================================
+             DECORATIVE TOP
+             ================================================= -->
 
         <div class="ornament">
             ◆ ◆ ◆
@@ -418,6 +390,7 @@
             <div class="title">
                 Certificate of Achievement
             </div>
+
 
             <div class="title-line"></div>
 
@@ -492,7 +465,7 @@
 
 
         <!-- =================================================
-             DETAILS
+             DETAILS SECTION
              ================================================= -->
 
         <div class="details">
@@ -620,133 +593,122 @@
 
 
         <!-- =================================================
-             BOTTOM SECTION
-             ISSUER + VERIFICATION
+             ISSUING AUTHORITY
+             Bottom-left
+             Display only if issuer information exists
              ================================================= -->
 
         #set($issuerNameData = $rowProperties.get("issuerName"))
         #set($issuerDesignationData = $rowProperties.get("issuerDesignation"))
         #set($issuerSignatureData = $rowProperties.get("issuerSignature"))
 
-        <div class="bottom-section">
+
+        #if(
+            ($issuerNameData && $issuerNameData.size() > 0) ||
+            ($issuerDesignationData && $issuerDesignationData.size() > 0) ||
+            ($issuerSignatureData && $issuerSignatureData.size() > 0)
+        )
+
+            <div class="issuer-section">
 
 
-            <!-- =================================================
-                 ISSUER SECTION
-                 Display only when issuer information exists
-                 ================================================= -->
+                <!-- =================================================
+                     SIGNATURE
+                     ================================================= -->
 
-            #if(
-                ($issuerNameData && $issuerNameData.size() > 0) ||
-                ($issuerDesignationData && $issuerDesignationData.size() > 0) ||
-                ($issuerSignatureData && $issuerSignatureData.size() > 0)
-            )
+                #if($issuerSignatureData && $issuerSignatureData.size() > 0)
 
-                <div class="issuer-section">
+                    #foreach($entry in $issuerSignatureData.entrySet())
+
+                        #set($signature = $entry.value)
 
 
-                    <!-- SIGNATURE -->
+                        #if($signature.startsWith("http://") || $signature.startsWith("https://"))
 
-                    #if($issuerSignatureData && $issuerSignatureData.size() > 0)
+                            <!-- Signature URL -->
 
-                        #foreach($entry in $issuerSignatureData.entrySet())
-
-                            #set($signature = $entry.value)
-
-                            #if($signature.startsWith("http://") || $signature.startsWith("https://"))
-
-                                <img
-                                    src="$signature"
-                                    alt="Issuer Signature"
-                                    class="issuer-signature"
-                                />
-
-                            #elseif($signature.startsWith("data:image/"))
-
-                                <img
-                                    src="$signature"
-                                    alt="Issuer Signature"
-                                    class="issuer-signature"
-                                />
-
-                            #else
-
-                                <img
-                                    src="data:image/png;base64,$signature"
-                                    alt="Issuer Signature"
-                                    class="issuer-signature"
-                                />
-
-                            #end
-
-                        #end
-
-                    #else
-
-                        <div class="issuer-signature-placeholder"></div>
-
-                    #end
+                            <img
+                                src="$signature"
+                                alt="Issuer Signature"
+                                class="issuer-signature"
+                            />
 
 
-                    <div class="issuer-line"></div>
+                        #elseif($signature.startsWith("data:image/"))
+
+                            <!-- Signature Data URI -->
+
+                            <img
+                                src="$signature"
+                                alt="Issuer Signature"
+                                class="issuer-signature"
+                            />
 
 
-                    <!-- ISSUER NAME -->
+                        #else
 
-                    #if($issuerNameData && $issuerNameData.size() > 0)
+                            <!-- Raw Base64 Signature -->
 
-                        #foreach($entry in $issuerNameData.entrySet())
-
-                            <div class="issuer-name">
-                                $entry.value
-                            </div>
+                            <img
+                                src="data:image/png;base64,$signature"
+                                alt="Issuer Signature"
+                                class="issuer-signature"
+                            />
 
                         #end
 
                     #end
 
+                #else
 
-                    <!-- ISSUER DESIGNATION -->
+                    <div class="issuer-signature-placeholder"></div>
 
-                    #if($issuerDesignationData && $issuerDesignationData.size() > 0)
+                #end
 
-                        #foreach($entry in $issuerDesignationData.entrySet())
 
-                            <div class="issuer-designation">
-                                $entry.value
-                            </div>
+                <!-- =================================================
+                     ISSUER LINE
+                     ================================================= -->
 
-                        #end
+                <div class="issuer-line"></div>
+
+
+                <!-- =================================================
+                     ISSUER NAME
+                     ================================================= -->
+
+                #if($issuerNameData && $issuerNameData.size() > 0)
+
+                    #foreach($entry in $issuerNameData.entrySet())
+
+                        <div class="issuer-name">
+                            $entry.value
+                        </div>
 
                     #end
 
-                </div>
-
-            #end
+                #end
 
 
-            <!-- =================================================
-                 VERIFICATION
-                 ================================================= -->
+                <!-- =================================================
+                     ISSUER DESIGNATION
+                     ================================================= -->
 
-            <div class="verification-section">
+                #if($issuerDesignationData && $issuerDesignationData.size() > 0)
 
-                <div class="verification-icon">
-                    ✓
-                </div>
+                    #foreach($entry in $issuerDesignationData.entrySet())
 
-                <div class="verification-title">
-                    Digitally Verifiable Credential
-                </div>
+                        <div class="issuer-designation">
+                            $entry.value
+                        </div>
 
-                <div class="verification-text">
-                    This certificate can be digitally verified
-                    using the QR code provided with this credential.
-                </div>
+                    #end
+
+                #end
 
             </div>
 
-        </div>
+        #end
 
     </div>
 
@@ -762,9 +724,11 @@
 
     <div class="qr-page-inner">
 
+
         <div class="qr-title">
             Verify Certificate
         </div>
+
 
         <div class="qr-description">
             Scan the QR code below to verify this credential.
@@ -773,6 +737,9 @@
 
         <!-- =================================================
              QR CODE
+
+             Mimoto provides QR image as Base64.
+
              ================================================= -->
 
         #if($qrCodeImage && $qrCodeImage != "")
@@ -787,9 +754,11 @@
 
             </div>
 
+
             <div class="qr-label">
                 Scan to Verify
             </div>
+
 
             <div class="qr-help">
                 Use your credential verifier to scan this QR code.

@@ -24,19 +24,19 @@
             background: #f4f1ea;
             width: 100%;
             margin: 0;
-            padding: 20px;
+            padding: 18px;
         }
 
         /* =====================================================
-           FIRST PAGE - CERTIFICATE
+           PAGE 1
            ===================================================== */
 
         .certificate-page {
             width: 100%;
-            height: 740px;
+            height: 754px;
             background: #ffffff;
-            border: 10px solid #7C4616;
-            padding: 45px 60px;
+            border: 8px solid #7C4616;
+            padding: 32px 48px;
             position: relative;
             page-break-after: always;
             overflow: hidden;
@@ -45,18 +45,42 @@
         .certificate-page:before {
             content: "";
             position: absolute;
-            top: 14px;
-            left: 14px;
-            right: 14px;
-            bottom: 14px;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
             border: 2px solid #d9c7a3;
+            pointer-events: none;
+        }
+
+        .certificate-page:after {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px solid #eee5d3;
+            pointer-events: none;
         }
 
         .content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             width: 100%;
             height: 100%;
+        }
+
+        /* =====================================================
+           DECORATIVE TOP
+           ===================================================== */
+
+        .ornament {
+            text-align: center;
+            color: #b58a4a;
+            font-size: 18px;
+            letter-spacing: 8px;
+            margin-bottom: 8px;
         }
 
         /* =====================================================
@@ -68,23 +92,30 @@
         }
 
         .institution {
-            font-size: 24px;
+            font-size: 25px;
             font-weight: bold;
             color: #7C4616;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 2.5px;
         }
 
         .title {
-            margin-top: 12px;
-            font-size: 36px;
+            margin-top: 9px;
+            font-size: 37px;
             font-weight: bold;
             color: #292929;
+            letter-spacing: 1px;
+        }
+
+        .title-line {
+            width: 120px;
+            height: 2px;
+            background: #d9c7a3;
+            margin: 9px auto 7px auto;
         }
 
         .certificate-type {
-            margin-top: 6px;
-            font-size: 13px;
+            font-size: 12px;
             color: #777777;
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -96,18 +127,18 @@
 
         .main {
             text-align: center;
-            margin-top: 32px;
+            margin-top: 27px;
         }
 
         .intro {
             font-size: 16px;
-            color: #444444;
+            color: #555555;
         }
 
         .student-name {
-            margin: 12px auto;
-            padding: 6px 20px;
-            max-width: 700px;
+            margin: 9px auto 8px auto;
+            padding: 4px 20px 7px 20px;
+            max-width: 720px;
             border-bottom: 1px solid #d9c7a3;
             font-size: 32px;
             font-weight: bold;
@@ -115,13 +146,13 @@
         }
 
         .completion {
-            margin-top: 10px;
-            font-size: 16px;
-            color: #444444;
+            margin-top: 8px;
+            font-size: 15px;
+            color: #555555;
         }
 
         .program {
-            margin-top: 8px;
+            margin-top: 7px;
             font-size: 21px;
             font-weight: bold;
             color: #7C4616;
@@ -132,27 +163,35 @@
            ===================================================== */
 
         .details {
-            width: 100%;
-            margin-top: 35px;
+            width: 88%;
+            margin: 28px auto 0 auto;
             display: flex;
             justify-content: space-between;
+            border-top: 1px solid #eee5d3;
+            border-bottom: 1px solid #eee5d3;
+            padding: 12px 0;
         }
 
         .detail {
-            width: 23%;
+            width: 24%;
             text-align: center;
+            border-right: 1px solid #eee5d3;
+        }
+
+        .detail:last-child {
+            border-right: none;
         }
 
         .label {
-            font-size: 10px;
+            font-size: 9px;
             color: #999999;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             margin-bottom: 5px;
         }
 
         .value {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: bold;
             color: #292929;
             word-wrap: break-word;
@@ -164,103 +203,142 @@
 
         .certificate-id {
             text-align: center;
-            margin-top: 22px;
-            font-size: 10px;
+            margin-top: 14px;
+            font-size: 9px;
             color: #aaaaaa;
             letter-spacing: 1px;
         }
 
         /* =====================================================
-           ISSUING AUTHORITY
-           Bottom-left
+           BOTTOM SECTION
+           ===================================================== */
+
+        .bottom-section {
+            width: 92%;
+            margin: 16px auto 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            min-height: 92px;
+        }
+
+        /* =====================================================
+           ISSUER
            ===================================================== */
 
         .issuer-section {
-            position: absolute;
-            left: 0;
-            bottom: 35px;
-            width: 220px;
+            width: 240px;
             text-align: left;
         }
 
         .issuer-signature {
-            max-width: 150px;
-            max-height: 55px;
+            width: 145px;
+            height: 45px;
             object-fit: contain;
+            object-position: left bottom;
             display: block;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
+        }
+
+        .issuer-signature-placeholder {
+            height: 45px;
+        }
+
+        .issuer-line {
+            width: 190px;
+            border-top: 1px solid #292929;
+            margin-bottom: 5px;
         }
 
         .issuer-name {
-            font-size: 15px;
+            font-size: 14px;
             font-weight: bold;
             color: #292929;
         }
 
         .issuer-designation {
-            font-size: 12px;
+            font-size: 11px;
             color: #777777;
             margin-top: 2px;
         }
 
         /* =====================================================
-           FOOTER
-           Bottom-center
+           VERIFICATION FOOTER
            ===================================================== */
 
-        .footer {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 20px;
-            padding-top: 8px;
-            border-top: 1px solid #eeeeee;
-            text-align: center;
+        .verification-section {
+            width: 240px;
+            text-align: right;
+            padding-bottom: 3px;
         }
 
-        .verification {
+        .verification-icon {
+            font-size: 20px;
+            color: #7C4616;
+            margin-bottom: 4px;
+        }
+
+        .verification-title {
             font-size: 11px;
+            font-weight: bold;
+            color: #7C4616;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .verification-text {
+            margin-top: 4px;
+            font-size: 9px;
             color: #999999;
+            line-height: 1.4;
         }
 
         /* =====================================================
-           SECOND PAGE - QR CODE
+           SECOND PAGE - QR
            ===================================================== */
 
         .qr-page {
             width: 100%;
-            height: 740px;
+            height: 754px;
             background: #ffffff;
-            border: 10px solid #7C4616;
+            border: 8px solid #7C4616;
             position: relative;
             text-align: center;
             page-break-before: always;
-            page-break-after: auto;
-            padding: 60px;
+            padding: 55px;
             overflow: hidden;
+        }
+
+        .qr-page:before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            bottom: 12px;
+            border: 2px solid #d9c7a3;
         }
 
         .qr-page-inner {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             width: 100%;
             height: 100%;
-            min-height: 540px;
-            border: 2px solid #d9c7a3;
-            padding-top: 45px;
+            border: 1px solid #eee5d3;
+            padding-top: 40px;
         }
 
         .qr-title {
             font-size: 30px;
             font-weight: bold;
             color: #7C4616;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .qr-description {
             font-size: 15px;
             color: #555555;
-            margin-bottom: 25px;
+            margin-bottom: 22px;
         }
 
         .qr-code-container {
@@ -279,8 +357,8 @@
         }
 
         .qr-label {
-            margin-top: 15px;
-            font-size: 15px;
+            margin-top: 13px;
+            font-size: 14px;
             font-weight: bold;
             color: #7C4616;
             text-transform: uppercase;
@@ -288,7 +366,7 @@
         }
 
         .qr-help {
-            margin-top: 8px;
+            margin-top: 7px;
             font-size: 11px;
             color: #888888;
         }
@@ -309,8 +387,15 @@
 
     <div class="content">
 
+        <!-- TOP ORNAMENT -->
+
+        <div class="ornament">
+            ◆ ◆ ◆
+        </div>
+
+
         <!-- =================================================
-             INSTITUTION NAME
+             HEADER
              ================================================= -->
 
         <div class="header">
@@ -330,18 +415,12 @@
             #end
 
 
-            <!-- =================================================
-                 TITLE
-                 ================================================= -->
-
             <div class="title">
                 Certificate of Achievement
             </div>
 
+            <div class="title-line"></div>
 
-            <!-- =================================================
-                 CERTIFICATE TYPE
-                 ================================================= -->
 
             #set($data = $rowProperties.get("certificateType"))
 
@@ -413,7 +492,7 @@
 
 
         <!-- =================================================
-             DETAILS SECTION
+             DETAILS
              ================================================= -->
 
         <div class="details">
@@ -541,118 +620,130 @@
 
 
         <!-- =================================================
-             ISSUING AUTHORITY
-             Bottom-left
-             Display only if issuer information exists
+             BOTTOM SECTION
+             ISSUER + VERIFICATION
              ================================================= -->
 
         #set($issuerNameData = $rowProperties.get("issuerName"))
         #set($issuerDesignationData = $rowProperties.get("issuerDesignation"))
         #set($issuerSignatureData = $rowProperties.get("issuerSignature"))
 
-        #if(
-            ($issuerNameData && $issuerNameData.size() > 0) ||
-            ($issuerDesignationData && $issuerDesignationData.size() > 0) ||
-            ($issuerSignatureData && $issuerSignatureData.size() > 0)
-        )
+        <div class="bottom-section">
 
-            <div class="issuer-section">
 
-                <!-- =================================================
-                     ISSUER SIGNATURE
-                     Supports URL, data URI and raw Base64
-                     ================================================= -->
+            <!-- =================================================
+                 ISSUER SECTION
+                 Display only when issuer information exists
+                 ================================================= -->
 
-                #if($issuerSignatureData && $issuerSignatureData.size() > 0)
+            #if(
+                ($issuerNameData && $issuerNameData.size() > 0) ||
+                ($issuerDesignationData && $issuerDesignationData.size() > 0) ||
+                ($issuerSignatureData && $issuerSignatureData.size() > 0)
+            )
 
-                    #foreach($entry in $issuerSignatureData.entrySet())
+                <div class="issuer-section">
 
-                        #set($signature = $entry.value)
 
-                        #if($signature.startsWith("http://") || $signature.startsWith("https://"))
+                    <!-- SIGNATURE -->
 
-                            <!-- Signature is a URL -->
+                    #if($issuerSignatureData && $issuerSignatureData.size() > 0)
 
-                            <img
-                                src="$signature"
-                                alt="Issuer Signature"
-                                class="issuer-signature"
-                            />
+                        #foreach($entry in $issuerSignatureData.entrySet())
 
-                        #elseif($signature.startsWith("data:image/"))
+                            #set($signature = $entry.value)
 
-                            <!-- Signature already contains data URI -->
+                            #if($signature.startsWith("http://") || $signature.startsWith("https://"))
 
-                            <img
-                                src="$signature"
-                                alt="Issuer Signature"
-                                class="issuer-signature"
-                            />
+                                <img
+                                    src="$signature"
+                                    alt="Issuer Signature"
+                                    class="issuer-signature"
+                                />
 
-                        #else
+                            #elseif($signature.startsWith("data:image/"))
 
-                            <!-- Signature is raw Base64 -->
+                                <img
+                                    src="$signature"
+                                    alt="Issuer Signature"
+                                    class="issuer-signature"
+                                />
 
-                            <img
-                                src="data:image/png;base64,$signature"
-                                alt="Issuer Signature"
-                                class="issuer-signature"
-                            />
+                            #else
+
+                                <img
+                                    src="data:image/png;base64,$signature"
+                                    alt="Issuer Signature"
+                                    class="issuer-signature"
+                                />
+
+                            #end
+
+                        #end
+
+                    #else
+
+                        <div class="issuer-signature-placeholder"></div>
+
+                    #end
+
+
+                    <div class="issuer-line"></div>
+
+
+                    <!-- ISSUER NAME -->
+
+                    #if($issuerNameData && $issuerNameData.size() > 0)
+
+                        #foreach($entry in $issuerNameData.entrySet())
+
+                            <div class="issuer-name">
+                                $entry.value
+                            </div>
 
                         #end
 
                     #end
 
-                #end
 
+                    <!-- ISSUER DESIGNATION -->
 
-                <!-- =================================================
-                     ISSUER NAME
-                     ================================================= -->
+                    #if($issuerDesignationData && $issuerDesignationData.size() > 0)
 
-                #if($issuerNameData && $issuerNameData.size() > 0)
+                        #foreach($entry in $issuerDesignationData.entrySet())
 
-                    #foreach($entry in $issuerNameData.entrySet())
+                            <div class="issuer-designation">
+                                $entry.value
+                            </div>
 
-                        <div class="issuer-name">
-                            $entry.value
-                        </div>
+                        #end
 
                     #end
 
-                #end
+                </div>
+
+            #end
 
 
-                <!-- =================================================
-                     ISSUER DESIGNATION
-                     ================================================= -->
+            <!-- =================================================
+                 VERIFICATION
+                 ================================================= -->
 
-                #if($issuerDesignationData && $issuerDesignationData.size() > 0)
+            <div class="verification-section">
 
-                    #foreach($entry in $issuerDesignationData.entrySet())
+                <div class="verification-icon">
+                    ✓
+                </div>
 
-                        <div class="issuer-designation">
-                            $entry.value
-                        </div>
+                <div class="verification-title">
+                    Digitally Verifiable Credential
+                </div>
 
-                    #end
+                <div class="verification-text">
+                    This certificate can be digitally verified
+                    using the QR code provided with this credential.
+                </div>
 
-                #end
-
-            </div>
-
-        #end
-
-
-        <!-- =================================================
-             FOOTER
-             Fixed at bottom-center of first page
-             ================================================= -->
-
-        <div class="footer">
-
-            <div class="verification">
-                Digitally Verifiable Credential
             </div>
 
         </div>
@@ -664,7 +755,7 @@
 
 <!-- =========================================================
      PAGE 2
-     QR CODE ONLY
+     QR CODE
      ========================================================= -->
 
 <div class="qr-page">
@@ -682,14 +773,6 @@
 
         <!-- =================================================
              QR CODE
-
-             IMPORTANT:
-             Mimoto provides QR image as Base64.
-
-             Therefore use:
-
-             data:image/png;base64,$qrCodeImage
-
              ================================================= -->
 
         #if($qrCodeImage && $qrCodeImage != "")

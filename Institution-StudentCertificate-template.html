@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Certificate of Achievement</title>
+
+    <style>
+
+        @page {
+            size: A4 landscape;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #f4f1ea;
+            width: 100%;
+            margin: 0;
+            padding: 30px;
+        }
+
+        /* =====================================================
+           FIRST PAGE - CERTIFICATE
+           ===================================================== */
+
+        .certificate-page {
+            width: 100%;
+            min-height: 700px;
+            background: #ffffff;
+            border: 10px solid #7C4616;
+            padding: 55px 65px;
+            position: relative;
+            page-break-after: always;
+        }
+
+        .certificate-page:before {
+            content: "";
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            right: 14px;
+            bottom: 14px;
+            border: 2px solid #d9c7a3;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* =====================================================
+           HEADER
+           ===================================================== */
+
+        .header {
+            text-align: center;
+        }
+
+        .institution {
+            font-size: 24px;
+            font-weight: bold;
+            color: #7C4616;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .title {
+            margin-top: 15px;
+            font-size: 38px;
+            font-weight: bold;
+            color: #292929;
+        }
+
+        .certificate-type {
+            margin-top: 8px;
+            font-size: 14px;
+            color: #777777;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* =====================================================
+           MAIN CONTENT
+           ===================================================== */
+
+        .main {
+            text-align: center;
+            margin-top: 45px;
+        }
+
+        .intro {
+            font-size: 17px;
+            color: #444444;
+        }
+
+        .student-name {
+            margin: 15px auto;
+            padding: 8px 20px;
+            max-width: 700px;
+            border-bottom: 1px solid #d9c7a3;
+            font-size: 34px;
+            font-weight: bold;
+            color: #292929;
+        }
+
+        .completion {
+            margin-top: 15px;
+            font-size: 17px;
+            color: #444444;
+        }
+
+        .program {
+            margin-top: 12px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #7C4616;
+        }
+
+        /* =====================================================
+           DETAILS
+           ===================================================== */
+
+        .details {
+            width: 100%;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .detail {
+            width: 23%;
+            text-align: center;
+        }
+
+        .label {
+            font-size: 11px;
+            color: #999999;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 7px;
+        }
+
+        .value {
+            font-size: 16px;
+            font-weight: bold;
+            color: #292929;
+            word-wrap: break-word;
+        }
+
+        /* =====================================================
+           CERTIFICATE ID
+           ===================================================== */
+
+        .certificate-id {
+            text-align: center;
+            margin-top: 35px;
+            font-size: 10px;
+            color: #aaaaaa;
+            letter-spacing: 1px;
+        }
+
+        /* =====================================================
+           ISSUING AUTHORITY
+           ===================================================== */
+
+        .issuer-section {
+            margin-top: 25px;
+            width: 220px;
+            text-align: left;
+        }
+
+        .issuer-signature {
+            max-width: 160px;
+            max-height: 60px;
+            object-fit: contain;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .issuer-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #292929;
+        }
+
+        .issuer-designation {
+            font-size: 13px;
+            color: #777777;
+            margin-top: 3px;
+        }
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        .footer {
+            margin-top: 45px;
+            padding-top: 20px;
+            border-top: 1px solid #eeeeee;
+            text-align: center;
+        }
+
+        .verification {
+            font-size: 12px;
+            color: #999999;
+        }
+
+        /* =====================================================
+           SECOND PAGE - QR CODE
+           ===================================================== */
+
+        .qr-page {
+            width: 100%;
+            min-height: 700px;
+            background: #ffffff;
+            border: 10px solid #7C4616;
+            position: relative;
+            text-align: center;
+            page-break-before: always;
+            page-break-after: auto;
+            padding: 70px;
+        }
+
+        .qr-page-inner {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            min-height: 540px;
+            border: 2px solid #d9c7a3;
+            padding-top: 60px;
+        }
+
+        .qr-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #7C4616;
+            margin-bottom: 15px;
+        }
+
+        .qr-description {
+            font-size: 16px;
+            color: #555555;
+            margin-bottom: 35px;
+        }
+
+        .qr-code-container {
+            width: 330px;
+            height: 330px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-code {
+            width: 300px;
+            height: 300px;
+            object-fit: contain;
+        }
+
+        .qr-label {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #7C4616;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .qr-help {
+            margin-top: 12px;
+            font-size: 12px;
+            color: #888888;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- =========================================================
+     PAGE 1
+     CERTIFICATE
+     ========================================================= -->
+
+<div class="certificate-page">
+
+    <div class="content">
+
+        <!-- =================================================
+             INSTITUTION NAME
+             ================================================= -->
+
+        <div class="header">
+
+            #set($data = $rowProperties.get("institutionName"))
+
+            #if($data && $data.size() > 0)
+
+                #foreach($entry in $data.entrySet())
+
+                    <div class="institution">
+                        $entry.value
+                    </div>
+
+                #end
+
+            #end
+
+
+            <!-- =================================================
+                 TITLE
+                 ================================================= -->
+
+            <div class="title">
+                Certificate of Achievement
+            </div>
+
+
+            <!-- =================================================
+                 CERTIFICATE TYPE
+                 ================================================= -->
+
+            #set($data = $rowProperties.get("certificateType"))
+
+            #if($data && $data.size() > 0)
+
+                #foreach($entry in $data.entrySet())
+
+                    <div class="certificate-type">
+                        $entry.value
+                    </div>
+
+                #end
+
+            #end
+
+        </div>
+
+
+        <!-- =================================================
+             STUDENT SECTION
+             ================================================= -->
+
+        <div class="main">
+
+            <div class="intro">
+                This is to certify that
+            </div>
+
+
+            <!-- STUDENT NAME -->
+
+            #set($data = $rowProperties.get("studentName"))
+
+            #if($data && $data.size() > 0)
+
+                #foreach($entry in $data.entrySet())
+
+                    <div class="student-name">
+                        $entry.value
+                    </div>
+
+                #end
+
+            #end
+
+
+            <div class="completion">
+                has successfully completed the program
+            </div>
+
+
+            <!-- PROGRAM -->
+
+            #set($data = $rowProperties.get("program"))
+
+            #if($data && $data.size() > 0)
+
+                #foreach($entry in $data.entrySet())
+
+                    <div class="program">
+                        $entry.value
+                    </div>
+
+                #end
+
+            #end
+
+        </div>
+
+
+        <!-- =================================================
+             DETAILS SECTION
+             ================================================= -->
+
+        <div class="details">
+
+
+            <!-- STUDENT ID -->
+
+            <div class="detail">
+
+                <div class="label">
+                    Student ID
+                </div>
+
+                #set($data = $rowProperties.get("studentId"))
+
+                #if($data && $data.size() > 0)
+
+                    #foreach($entry in $data.entrySet())
+
+                        <div class="value">
+                            $entry.value
+                        </div>
+
+                    #end
+
+                #end
+
+            </div>
+
+
+            <!-- BATCH -->
+
+            <div class="detail">
+
+                <div class="label">
+                    Batch
+                </div>
+
+                #set($data = $rowProperties.get("batchYear"))
+
+                #if($data && $data.size() > 0)
+
+                    #foreach($entry in $data.entrySet())
+
+                        <div class="value">
+                            $entry.value
+                        </div>
+
+                    #end
+
+                #end
+
+            </div>
+
+
+            <!-- GRADE -->
+
+            <div class="detail">
+
+                <div class="label">
+                    Grade
+                </div>
+
+                #set($data = $rowProperties.get("grade"))
+
+                #if($data && $data.size() > 0)
+
+                    #foreach($entry in $data.entrySet())
+
+                        <div class="value">
+                            $entry.value
+                        </div>
+
+                    #end
+
+                #end
+
+            </div>
+
+
+            <!-- ISSUE DATE -->
+
+            <div class="detail">
+
+                <div class="label">
+                    Issued On
+                </div>
+
+                #set($data = $rowProperties.get("issueDate"))
+
+                #if($data && $data.size() > 0)
+
+                    #foreach($entry in $data.entrySet())
+
+                        <div class="value">
+                            $entry.value
+                        </div>
+
+                    #end
+
+                #end
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             CERTIFICATE ID
+             ================================================= -->
+
+        #set($data = $rowProperties.get("certificateKey"))
+
+        #if($data && $data.size() > 0)
+
+            #foreach($entry in $data.entrySet())
+
+                <div class="certificate-id">
+                    Certificate ID: $entry.value
+                </div>
+
+            #end
+
+        #end
+
+
+        <!-- =================================================
+             ISSUING AUTHORITY
+             Bottom-left of first page
+             Display only if issuer information exists
+             ================================================= -->
+
+        #set($issuerNameData = $rowProperties.get("issuerName"))
+        #set($issuerDesignationData = $rowProperties.get("issuerDesignation"))
+        #set($issuerSignatureData = $rowProperties.get("issuerSignature"))
+
+        #if(
+            ($issuerNameData && $issuerNameData.size() > 0) ||
+            ($issuerDesignationData && $issuerDesignationData.size() > 0) ||
+            ($issuerSignatureData && $issuerSignatureData.size() > 0)
+        )
+
+            <div class="issuer-section">
+
+                <!-- =================================================
+                     ISSUER SIGNATURE
+                     Supports URL and Base64
+                     ================================================= -->
+
+                #if($issuerSignatureData && $issuerSignatureData.size() > 0)
+
+                    #foreach($entry in $issuerSignatureData.entrySet())
+
+                        #set($signature = $entry.value)
+
+                        #if($signature.startsWith("http://") || $signature.startsWith("https://"))
+
+                            <!-- Signature is a URL -->
+
+                            <img
+                                src="$signature"
+                                alt="Issuer Signature"
+                                class="issuer-signature"
+                            />
+
+                        #elseif($signature.startsWith("data:image/"))
+
+                            <!-- Signature already contains data URI -->
+
+                            <img
+                                src="$signature"
+                                alt="Issuer Signature"
+                                class="issuer-signature"
+                            />
+
+                        #else
+
+                            <!-- Signature is raw Base64 -->
+
+                            <img
+                                src="data:image/png;base64,$signature"
+                                alt="Issuer Signature"
+                                class="issuer-signature"
+                            />
+
+                        #end
+
+                    #end
+
+                #end
+
+
+                <!-- =================================================
+                     ISSUER NAME
+                     ================================================= -->
+
+                #if($issuerNameData && $issuerNameData.size() > 0)
+
+                    #foreach($entry in $issuerNameData.entrySet())
+
+                        <div class="issuer-name">
+                            $entry.value
+                        </div>
+
+                    #end
+
+                #end
+
+
+                <!-- =================================================
+                     ISSUER DESIGNATION
+                     ================================================= -->
+
+                #if($issuerDesignationData && $issuerDesignationData.size() > 0)
+
+                    #foreach($entry in $issuerDesignationData.entrySet())
+
+                        <div class="issuer-designation">
+                            $entry.value
+                        </div>
+
+                    #end
+
+                #end
+
+            </div>
+
+        #end
+
+
+        <!-- =================================================
+             FOOTER
+             ================================================= -->
+
+        <div class="footer">
+
+            <div class="verification">
+                Digitally Verifiable Credential
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     PAGE 2
+     QR CODE ONLY
+     ========================================================= -->
+
+<div class="qr-page">
+
+    <div class="qr-page-inner">
+
+        <div class="qr-title">
+            Verify Certificate
+        </div>
+
+        <div class="qr-description">
+            Scan the QR code below to verify this credential.
+        </div>
+
+
+        <!-- =================================================
+             QR CODE
+
+             IMPORTANT:
+             Mimoto provides QR image as Base64.
+             Therefore use:
+
+             data:image/png;base64,$qrCodeImage
+
+             Do NOT use:
+             src="$qrCodeImage"
+             ================================================= -->
+
+        #if($qrCodeImage && $qrCodeImage != "")
+
+            <div class="qr-code-container">
+
+                <img
+                    src="data:image/png;base64,$qrCodeImage"
+                    alt="Verification QR Code"
+                    class="qr-code"
+                />
+
+            </div>
+
+            <div class="qr-label">
+                Scan to Verify
+            </div>
+
+            <div class="qr-help">
+                Use your credential verifier to scan this QR code.
+            </div>
+
+        #end
+
+    </div>
+
+</div>
+
+
+</body>
+
+</html>

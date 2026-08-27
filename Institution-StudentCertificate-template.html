@@ -136,13 +136,15 @@
         .details {
             width: 100%;
             margin-top: 34px;
-            display: flex;
-            justify-content: space-between;
+            display: table;
+            table-layout: fixed;
         }
 
         .detail {
-            width: 23%;
+            width: 25%;
+            display: table-cell;
             text-align: center;
+            vertical-align: top;
         }
 
         .label {
@@ -167,7 +169,7 @@
 
         .certificate-id {
             text-align: center;
-            margin-top: 12px;
+            margin-top: 14px;
             font-size: 9px;
             color: #aaaaaa;
             letter-spacing: 0.5px;
@@ -178,14 +180,14 @@
 
 
         /* =====================================================
-           FOOTER / ISSUER SECTION
+           FOOTER
            ===================================================== */
 
         .bottom-section {
             position: absolute;
             left: 60px;
             right: 60px;
-            bottom: 35px;
+            bottom: 28px;
             height: 105px;
             border-top: 1px solid #eeeeee;
             padding-top: 12px;
@@ -194,16 +196,44 @@
 
 
         /* =====================================================
-           ISSUER - LEFT SIDE
+           FOOTER TABLE
+
+           Three columns:
+           1. Issuer / Signature
+           2. Digital Verification
+           3. Empty balancing column
            ===================================================== */
 
-        .issuer-section {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 260px;
-            text-align: left;
+        .footer-table {
+            width: 100%;
+            height: 85px;
+            border-collapse: collapse;
+            table-layout: fixed;
         }
+
+        .footer-left {
+            width: 30%;
+            text-align: left;
+            vertical-align: bottom;
+        }
+
+        .footer-center {
+            width: 50%;
+            text-align: center;
+            vertical-align: bottom;
+            padding: 0 20px;
+        }
+
+        .footer-right {
+            width: 20%;
+            text-align: right;
+            vertical-align: bottom;
+        }
+
+
+        /* =====================================================
+           ISSUER SIGNATURE
+           ===================================================== */
 
         .issuer-signature {
             width: 120px;
@@ -236,17 +266,8 @@
 
 
         /* =====================================================
-           DIGITAL VERIFICATION - CENTER
+           DIGITAL VERIFICATION
            ===================================================== */
-
-        .verification {
-            position: absolute;
-            left: 50%;
-            bottom: 5px;
-            transform: translateX(-50%);
-            width: 430px;
-            text-align: center;
-        }
 
         .verification-title {
             font-size: 14px;
@@ -254,6 +275,7 @@
             color: #7C4616;
             text-transform: uppercase;
             letter-spacing: 1.5px;
+            line-height: 1.3;
         }
 
         .verification-text {
@@ -608,71 +630,67 @@
 
     <!-- =========================================================
          FOOTER
-
-         Display footer when issuer information is available.
          ========================================================= -->
 
-    #if(
-        ($issuerNameData && $issuerNameData.size() > 0) ||
-        ($issuerDesignationData && $issuerDesignationData.size() > 0) ||
-        ($issuerSignatureData && $issuerSignatureData.size() > 0)
-    )
+    <div class="bottom-section">
 
-        <div class="bottom-section">
+        <table class="footer-table">
+
+            <tr>
 
 
-            <!-- =================================================
-                 ISSUER - LEFT
-                 ================================================= -->
+                <!-- =================================================
+                     LEFT COLUMN
+                     SIGNATURE + NAME + DESIGNATION
+                     ================================================= -->
 
-            <div class="issuer-section">
+                <td class="footer-left">
 
+                    #if($issuerSignatureData && $issuerSignatureData.size() > 0)
 
-                <!-- SIGNATURE -->
+                        #foreach($entry in $issuerSignatureData.entrySet())
 
-                #if($issuerSignatureData && $issuerSignatureData.size() > 0)
+                            #if($entry.value && $entry.value != "")
 
-                    #foreach($entry in $issuerSignatureData.entrySet())
-
-                        #if($entry.value && $entry.value != "")
-
-                            #set($signature = $entry.value)
+                                #set($signature = $entry.value)
 
 
-                            <!-- PUBLIC IMAGE URL -->
+                                <!-- PUBLIC IMAGE URL -->
 
-                            #if(
-                                $signature.startsWith("http://") ||
-                                $signature.startsWith("https://")
-                            )
+                                #if(
+                                    $signature.startsWith("http://") ||
+                                    $signature.startsWith("https://")
+                                )
 
-                                <img
-                                    src="$signature"
-                                    alt="Issuer Signature"
-                                    class="issuer-signature"
-                                />
-
-
-                            <!-- DATA URL -->
-
-                            #elseif($signature.startsWith("data:image/"))
-
-                                <img
-                                    src="$signature"
-                                    alt="Issuer Signature"
-                                    class="issuer-signature"
-                                />
+                                    <img
+                                        src="$signature"
+                                        alt="Issuer Signature"
+                                        class="issuer-signature"
+                                    />
 
 
-                            <!-- RAW BASE64 -->
+                                <!-- DATA URL -->
 
-                            #else
+                                #elseif($signature.startsWith("data:image/"))
 
-                                <img
-                                    src="data:image/png;base64,$signature"
-                                    alt="Issuer Signature"
-                                    class="issuer-signature"
-                                />
+                                    <img
+                                        src="$signature"
+                                        alt="Issuer Signature"
+                                        class="issuer-signature"
+                                    />
+
+
+                                <!-- RAW BASE64 -->
+
+                                #else
+
+                                    <img
+                                        src="data:image/png;base64,$signature"
+                                        alt="Issuer Signature"
+                                        class="issuer-signature"
+                                    />
+
+                                #end
 
                             #end
 
@@ -680,104 +698,89 @@
 
                     #end
 
-                #end
+
+                    <!-- SIGNATURE LINE -->
+
+                    #if($issuerSignatureData && $issuerSignatureData.size() > 0)
+
+                        <div class="issuer-line"></div>
+
+                    #end
 
 
-                <!-- SIGNATURE LINE -->
+                    <!-- ISSUER NAME -->
 
-                #if($issuerSignatureData && $issuerSignatureData.size() > 0)
+                    #if($issuerNameData && $issuerNameData.size() > 0)
 
-                    <div class="issuer-line"></div>
+                        #foreach($entry in $issuerNameData.entrySet())
 
-                #end
+                            #if($entry.value && $entry.value != "")
 
+                                <div class="issuer-name">
+                                    $entry.value
+                                </div>
 
-                <!-- ISSUER NAME -->
-
-                #if($issuerNameData && $issuerNameData.size() > 0)
-
-                    #foreach($entry in $issuerNameData.entrySet())
-
-                        #if($entry.value && $entry.value != "")
-
-                            <div class="issuer-name">
-                                $entry.value
-                            </div>
+                            #end
 
                         #end
 
                     #end
 
-                #end
 
+                    <!-- ISSUER DESIGNATION -->
 
-                <!-- ISSUER DESIGNATION -->
+                    #if($issuerDesignationData && $issuerDesignationData.size() > 0)
 
-                #if($issuerDesignationData && $issuerDesignationData.size() > 0)
+                        #foreach($entry in $issuerDesignationData.entrySet())
 
-                    #foreach($entry in $issuerDesignationData.entrySet())
+                            #if($entry.value && $entry.value != "")
 
-                        #if($entry.value && $entry.value != "")
+                                <div class="issuer-designation">
+                                    $entry.value
+                                </div>
 
-                            <div class="issuer-designation">
-                                $entry.value
-                            </div>
+                            #end
 
                         #end
 
                     #end
 
-                #end
-
-            </div>
+                </td>
 
 
-            <!-- =================================================
-                 DIGITAL VERIFICATION - CENTER
-                 ================================================= -->
+                <!-- =================================================
+                     CENTER COLUMN
+                     DIGITAL VERIFICATION
+                     ================================================= -->
 
-            <div class="verification">
+                <td class="footer-center">
 
-                <div class="verification-title">
-                    Digitally Verifiable Credential
-                </div>
+                    <div class="verification-title">
+                        Digitally Verifiable Credential
+                    </div>
 
-                <div class="verification-text">
-                    This certificate can be digitally verified
-                    using the QR code provided with this credential.
-                </div>
+                    <div class="verification-text">
+                        This certificate can be digitally verified
+                        using the QR code provided with this credential.
+                    </div>
 
-            </div>
+                </td>
 
 
-        </div>
+                <!-- =================================================
+                     RIGHT COLUMN
+                     EMPTY - BALANCING SPACE
+                     ================================================= -->
 
-    #else
+                <td class="footer-right">
+                </td>
 
-        <!-- =================================================
-             NO ISSUER DATA
-             ONLY DIGITAL VERIFICATION
-             ================================================= -->
 
-        <div class="bottom-section">
+            </tr>
 
-            <div class="verification">
+        </table>
 
-                <div class="verification-title">
-                    Digitally Verifiable Credential
-                </div>
-
-                <div class="verification-text">
-                    This certificate can be digitally verified
-                    using the QR code provided with this credential.
-                </div>
-
-            </div>
-
-        </div>
-
-    #end
-
+    </div>
 
 </div>
 
@@ -792,10 +795,14 @@
     <div class="qr-page-inner">
 
 
+        <!-- QR TITLE -->
+
         <div class="qr-title">
             Verify Certificate
         </div>
 
+
+        <!-- QR DESCRIPTION -->
 
         <div class="qr-description">
             Scan the QR code below to verify this credential.

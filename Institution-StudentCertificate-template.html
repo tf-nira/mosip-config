@@ -24,7 +24,7 @@
             background: #f4f1ea;
             width: 100%;
             margin: 0;
-            padding: 30px;
+            padding: 20px;
         }
 
         /* =====================================================
@@ -33,12 +33,13 @@
 
         .certificate-page {
             width: 100%;
-            min-height: 700px;
+            height: 740px;
             background: #ffffff;
             border: 10px solid #7C4616;
-            padding: 55px 65px;
+            padding: 45px 60px;
             position: relative;
             page-break-after: always;
+            overflow: hidden;
         }
 
         .certificate-page:before {
@@ -54,6 +55,8 @@
         .content {
             position: relative;
             z-index: 1;
+            width: 100%;
+            height: 100%;
         }
 
         /* =====================================================
@@ -73,15 +76,15 @@
         }
 
         .title {
-            margin-top: 15px;
-            font-size: 38px;
+            margin-top: 12px;
+            font-size: 36px;
             font-weight: bold;
             color: #292929;
         }
 
         .certificate-type {
-            margin-top: 8px;
-            font-size: 14px;
+            margin-top: 6px;
+            font-size: 13px;
             color: #777777;
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -93,33 +96,33 @@
 
         .main {
             text-align: center;
-            margin-top: 45px;
+            margin-top: 32px;
         }
 
         .intro {
-            font-size: 17px;
+            font-size: 16px;
             color: #444444;
         }
 
         .student-name {
-            margin: 15px auto;
-            padding: 8px 20px;
+            margin: 12px auto;
+            padding: 6px 20px;
             max-width: 700px;
             border-bottom: 1px solid #d9c7a3;
-            font-size: 34px;
+            font-size: 32px;
             font-weight: bold;
             color: #292929;
         }
 
         .completion {
-            margin-top: 15px;
-            font-size: 17px;
+            margin-top: 10px;
+            font-size: 16px;
             color: #444444;
         }
 
         .program {
-            margin-top: 12px;
-            font-size: 22px;
+            margin-top: 8px;
+            font-size: 21px;
             font-weight: bold;
             color: #7C4616;
         }
@@ -130,7 +133,7 @@
 
         .details {
             width: 100%;
-            margin-top: 50px;
+            margin-top: 35px;
             display: flex;
             justify-content: space-between;
         }
@@ -141,15 +144,15 @@
         }
 
         .label {
-            font-size: 11px;
+            font-size: 10px;
             color: #999999;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 7px;
+            margin-bottom: 5px;
         }
 
         .value {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: bold;
             color: #292929;
             word-wrap: break-word;
@@ -161,7 +164,7 @@
 
         .certificate-id {
             text-align: center;
-            margin-top: 35px;
+            margin-top: 22px;
             font-size: 10px;
             color: #aaaaaa;
             letter-spacing: 1px;
@@ -169,47 +172,54 @@
 
         /* =====================================================
            ISSUING AUTHORITY
+           Bottom-left
            ===================================================== */
 
         .issuer-section {
-            margin-top: 25px;
+            position: absolute;
+            left: 0;
+            bottom: 35px;
             width: 220px;
             text-align: left;
         }
 
         .issuer-signature {
-            max-width: 160px;
-            max-height: 60px;
+            max-width: 150px;
+            max-height: 55px;
             object-fit: contain;
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .issuer-name {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: bold;
             color: #292929;
         }
 
         .issuer-designation {
-            font-size: 13px;
+            font-size: 12px;
             color: #777777;
-            margin-top: 3px;
+            margin-top: 2px;
         }
 
         /* =====================================================
            FOOTER
+           Bottom-center
            ===================================================== */
 
         .footer {
-            margin-top: 45px;
-            padding-top: 20px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 20px;
+            padding-top: 8px;
             border-top: 1px solid #eeeeee;
             text-align: center;
         }
 
         .verification {
-            font-size: 12px;
+            font-size: 11px;
             color: #999999;
         }
 
@@ -219,14 +229,15 @@
 
         .qr-page {
             width: 100%;
-            min-height: 700px;
+            height: 740px;
             background: #ffffff;
             border: 10px solid #7C4616;
             position: relative;
             text-align: center;
             page-break-before: always;
             page-break-after: auto;
-            padding: 70px;
+            padding: 60px;
+            overflow: hidden;
         }
 
         .qr-page-inner {
@@ -236,25 +247,25 @@
             height: 100%;
             min-height: 540px;
             border: 2px solid #d9c7a3;
-            padding-top: 60px;
+            padding-top: 45px;
         }
 
         .qr-title {
-            font-size: 32px;
+            font-size: 30px;
             font-weight: bold;
             color: #7C4616;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .qr-description {
-            font-size: 16px;
+            font-size: 15px;
             color: #555555;
-            margin-bottom: 35px;
+            margin-bottom: 25px;
         }
 
         .qr-code-container {
-            width: 330px;
-            height: 330px;
+            width: 310px;
+            height: 310px;
             margin: 0 auto;
             display: flex;
             align-items: center;
@@ -262,14 +273,14 @@
         }
 
         .qr-code {
-            width: 300px;
-            height: 300px;
+            width: 280px;
+            height: 280px;
             object-fit: contain;
         }
 
         .qr-label {
-            margin-top: 20px;
-            font-size: 16px;
+            margin-top: 15px;
+            font-size: 15px;
             font-weight: bold;
             color: #7C4616;
             text-transform: uppercase;
@@ -277,8 +288,8 @@
         }
 
         .qr-help {
-            margin-top: 12px;
-            font-size: 12px;
+            margin-top: 8px;
+            font-size: 11px;
             color: #888888;
         }
 
@@ -531,7 +542,7 @@
 
         <!-- =================================================
              ISSUING AUTHORITY
-             Bottom-left of first page
+             Bottom-left
              Display only if issuer information exists
              ================================================= -->
 
@@ -549,7 +560,7 @@
 
                 <!-- =================================================
                      ISSUER SIGNATURE
-                     Supports URL and Base64
+                     Supports URL, data URI and raw Base64
                      ================================================= -->
 
                 #if($issuerSignatureData && $issuerSignatureData.size() > 0)
@@ -635,6 +646,7 @@
 
         <!-- =================================================
              FOOTER
+             Fixed at bottom-center of first page
              ================================================= -->
 
         <div class="footer">
@@ -673,12 +685,11 @@
 
              IMPORTANT:
              Mimoto provides QR image as Base64.
+
              Therefore use:
 
              data:image/png;base64,$qrCodeImage
 
-             Do NOT use:
-             src="$qrCodeImage"
              ================================================= -->
 
         #if($qrCodeImage && $qrCodeImage != "")

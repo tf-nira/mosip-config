@@ -163,10 +163,13 @@
 
         .certificate-id {
             text-align: center;
-            margin-top: 18px;
-            font-size: 10px;
+            margin-top: 16px;
+            font-size: 9px;
             color: #aaaaaa;
-            letter-spacing: 1px;
+            letter-spacing: 0.8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* =====================================================
@@ -175,12 +178,12 @@
 
         .bottom-section {
             position: absolute;
-            left: 60px;
-            right: 60px;
-            bottom: 28px;
-            min-height: 105px;
+            left: 0;
+            right: 0;
+            bottom: 8px;
+            height: 82px;
             border-top: 1px solid #eeeeee;
-            padding-top: 14px;
+            padding-top: 8px;
         }
 
         /* =====================================================
@@ -191,39 +194,41 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            width: 240px;
+            width: 230px;
             text-align: left;
         }
 
         .issuer-signature {
-            width: 150px;
-            height: 48px;
+            width: 125px;
+            height: 30px;
             object-fit: contain;
             object-position: left bottom;
             display: block;
-            margin-bottom: 3px;
+            margin-bottom: 2px;
         }
 
         .issuer-signature-placeholder {
-            height: 48px;
+            height: 30px;
         }
 
         .issuer-line {
-            width: 190px;
+            width: 180px;
             border-top: 1px solid #292929;
-            margin-bottom: 6px;
+            margin-bottom: 3px;
         }
 
         .issuer-name {
-            font-size: 14px;
+            font-size: 12px;
             font-weight: bold;
             color: #292929;
+            line-height: 1.2;
         }
 
         .issuer-designation {
-            font-size: 11px;
+            font-size: 10px;
             color: #777777;
-            margin-top: 2px;
+            margin-top: 1px;
+            line-height: 1.2;
         }
 
         /* =====================================================
@@ -247,10 +252,10 @@
         }
 
         .verification-text {
-            margin-top: 5px;
-            font-size: 10px;
+            margin-top: 4px;
+            font-size: 9px;
             color: #999999;
-            line-height: 1.45;
+            line-height: 1.4;
         }
 
         /* =====================================================
@@ -592,7 +597,7 @@
             <!-- =================================================
                  ISSUER SECTION
 
-                 Display only when at least one issuer field exists
+                 Only displayed when issuer data is present
                  ================================================= -->
 
             #if(
@@ -692,8 +697,6 @@
 
             <!-- =================================================
                  DIGITAL VERIFICATION
-
-                 Always displayed on certificate page
                  ================================================= -->
 
             <div class="verification">
@@ -719,29 +722,21 @@
 
 <!-- =========================================================
      PAGE 2
-     QR CODE ONLY
+     QR CODE
      ========================================================= -->
 
 <div class="qr-page">
 
     <div class="qr-page-inner">
 
-
         <div class="qr-title">
             Verify Certificate
         </div>
-
 
         <div class="qr-description">
             Scan the QR code below to verify this credential.
         </div>
 
-
-        <!-- =================================================
-             QR CODE
-
-             Mimoto provides QR image as Base64.
-             ================================================= -->
 
         #if($qrCodeImage && $qrCodeImage != "")
 
@@ -766,7 +761,6 @@
             </div>
 
         #end
-
 
     </div>
 

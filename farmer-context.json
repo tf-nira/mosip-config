@@ -1,0 +1,29 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@protected": true,
+    "FarmerCredential": {
+      "@id": "https://dharanidharan-s-04.github.io/mosipid-did/sunbird/farmer-vocab#FarmerCredential",
+      "@context": {
+        "@version": 1.1,
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "farmerVocab": "https://dharanidharan-s-04.github.io/mosipid-did/sunbird/farmer-vocab#",
+        "farmerId": "farmerVocab:farmerId",
+        "name": "farmerVocab:name",
+        "country": "farmerVocab:country",
+        "region": "farmerVocab:region",
+        "district": "farmerVocab:district",
+        "village": "farmerVocab:village",
+        "primaryCrop": "farmerVocab:primaryCrop",
+        "farmSize": "farmerVocab:farmSize",
+        "farmSizeUnit": "farmerVocab:farmSizeUnit",
+        "farmingType": "farmerVocab:farmingType",
+        "landOwnershipType": "farmerVocab:landOwnershipType",
+        "registrationDate": "farmerVocab:registrationDate",
+        "status": "farmerVocab:status"
+      }
+    }
+  }
+}

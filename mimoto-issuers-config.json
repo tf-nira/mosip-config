@@ -208,7 +208,7 @@
       "credential_issuer_host": "https://${mosip.injicertify.farmer.host}",
       "display": [
         {
-          "name": "Institution",
+          "name": "Farmer Registry",
           "logo": {
             "url": "https://Dharanidharan-S-04.github.io/mosipid-did/sunbird/farmer.png",
             "alt_text": "a square logo representing an farmer registry"

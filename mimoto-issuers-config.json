@@ -170,7 +170,7 @@
       "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/StayProtected",
       "authorization_audience": "https://${mosipid.esignet.insurance.host}/v1/esignet/oauth/v2/token",
       "proxy_token_endpoint": "https://${mosipid.esignet.insurance.host}/v1/esignet/oauth/v2/token",
-      "authorization_endpoint": "https://esignet-insurance.demo.idencode.link/authorize",
+      "authorization_endpoint": "https://esignet-insurance.togodemo.idencode.link/authorize",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     },
@@ -198,7 +198,35 @@
       "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/Institution",
       "authorization_audience": "https://${mosipid.esignet.student.host}/v1/esignet/oauth/v2/token",
       "proxy_token_endpoint": "https://${mosipid.esignet.student.host}/v1/esignet/oauth/v2/token",
-      "authorization_endpoint": "https://esignet-student.demo.idencode.link/authorize",
+      "authorization_endpoint": "https://esignet-student.togodemo.idencode.link/authorize",
+      "qr_code_type": "OnlineSharing",
+      "enabled": "true"
+    },
+    {
+      "issuer_id": "Farmer",
+      "credential_issuer": "Farmer",
+      "credential_issuer_host": "https://${mosip.injicertify.farmer.host}",
+      "display": [
+        {
+          "name": "Institution",
+          "logo": {
+            "url": "https://Dharanidharan-S-04.github.io/mosipid-did/sunbird/farmer.png",
+            "alt_text": "a square logo representing an farmer registry"
+          },
+          "language": "en",
+          "title": "Download farmer credential",
+          "description": "Download your credential "
+        }
+      ],
+      "protocol": "OpenId4VCI",
+      "client_id": "${mimoto.oidc.partner.clientid}",
+      "client_alias": "mpartner-default-mimotooidc",
+      "wellknown_endpoint": "https://${mosip.injicertify.farmer.host}/v1/certify/issuance/.well-known/openid-credential-issuer",
+      "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
+      "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/Farmer",
+      "authorization_audience": "https://${mosipid.esignet.farmer.host}/v1/esignet/oauth/v2/token",
+      "proxy_token_endpoint": "https://${mosipid.esignet.farmer.host}/v1/esignet/oauth/v2/token",
+      "authorization_endpoint": "https://esignet-farmer.togodemo.idencode.link/authorize",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     }

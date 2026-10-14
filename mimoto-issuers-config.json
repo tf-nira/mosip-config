@@ -149,7 +149,7 @@
     {
       "issuer_id": "openg2p",
       "credential_issuer": "openg2p",
-      "credential_issuer_host": "https://inji-certify-g2p.demo.idencode.link",
+      "credential_issuer_host": "https://api-internal.demo.idencode.link/v1/vault",
       "display": [
         {
           "name": "openg2p Insurance",

@@ -170,7 +170,7 @@
       "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/StayProtected",
       "authorization_audience": "https://${mosipid.esignet.insurance.host}/v1/esignet/oauth/v2/token",
       "proxy_token_endpoint": "https://${mosipid.esignet.insurance.host}/v1/esignet/oauth/v2/token",
-      "authorization_endpoint": "https://esignet-insurance.togodemo.idencode.link/authorize",
+      "authorization_endpoint": "https://esignet-insurance.technodemo.idencode.link/authorize",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     },
@@ -198,7 +198,7 @@
       "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/Institution",
       "authorization_audience": "https://${mosipid.esignet.student.host}/v1/esignet/oauth/v2/token",
       "proxy_token_endpoint": "https://${mosipid.esignet.student.host}/v1/esignet/oauth/v2/token",
-      "authorization_endpoint": "https://esignet-student.togodemo.idencode.link/authorize",
+      "authorization_endpoint": "https://esignet-student.technodemo.idencode.link/authorize",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     },
@@ -226,7 +226,7 @@
       "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/Farmer",
       "authorization_audience": "https://${mosipid.esignet.farmer.host}/v1/esignet/oauth/v2/token",
       "proxy_token_endpoint": "https://${mosipid.esignet.farmer.host}/v1/esignet/oauth/v2/token",
-      "authorization_endpoint": "https://esignet-farmer.togodemo.idencode.link/authorize",
+      "authorization_endpoint": "https://esignet-farmer.technodemo.idencode.link/authorize",
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     },

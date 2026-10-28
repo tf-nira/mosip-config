@@ -147,6 +147,34 @@
       "enabled": "true"
     },
     {
+      "issuer_id": "openg2p",
+      "credential_issuer": "openg2p",
+      "credential_issuer_host": "https://api.technodemo.idencode.link/v1/vault",
+      "display": [
+        {
+          "name": "openg2p credentials",
+          "logo": {
+            "url": "https://Dharanidharan-S-04.github.io/mosipid-did/sunbird/openg2p_logo.jpeg",
+            "alt_text": "a square logo of a g2p"
+          },
+          "language": "en",
+          "title": "Download openg2p Insurance Credentials",
+          "description": "Download insurance credential"
+        }
+      ],
+      "protocol": "OpenId4VCI",
+      "client_id": "${mimoto.oidc.partner.clientid}",
+      "client_alias": "mpartner-default-mimotooidc",
+      "wellknown_endpoint": "https://api.technodemo.idencode.link/v1/vault/.well-known/openid-credential-issuer",
+      "redirect_uri": "io.mosip.residentapp.inji://oauthredirect",
+      "token_endpoint": "https://${mosip.api.public.host}/v1/mimoto/get-token/openg2p",
+      "authorization_audience": "https://esignet-g2p.technodemo.idencode.link/v1/esignet/oauth/v2/token",
+      "proxy_token_endpoint": "https://esignet-g2p.technodemo.idencode.link/v1/esignet/oauth/v2/token",
+      "authorization_endpoint": "https://esignet-g2p.technodemo.idencode.link/authorize",
+      "qr_code_type": "OnlineSharing",
+      "enabled": "true"
+    },
+    {
       "issuer_id": "StayProtected",
       "credential_issuer": "StayProtected",
       "credential_issuer_host": "https://${mosip.injicertify.insurance.host}",

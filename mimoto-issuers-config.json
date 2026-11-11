@@ -1,4 +1,6 @@
 {
+  "issuers": [
+      {
       "issuer_id": "NFRA",
       "credential_issuer": "National Farmers Registry Authority (NFRA)",
       "credential_issuer_host": "https://${mosip.injicertify.mock.host}",
@@ -25,3 +27,5 @@
       "qr_code_type": "OnlineSharing",
       "enabled": "true"
     }
+  ]
+}
